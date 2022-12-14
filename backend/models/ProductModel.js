@@ -5,6 +5,10 @@ const productSchema = mongoose.Schema({
   image: String,
   price: Number,
   ratings: Number,
+  // adminId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "admin",
+  // },
   adminId: String,
   otherImages: [String],
   category: String,
