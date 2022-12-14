@@ -1,3 +1,19 @@
+import navbar  from "../components/navbar.js";
+import footer from "../components/footer.js";
+document.getElementById("navigations").innerHTML = navbar()
+
+document.getElementById("footer").innerHTML = footer()
+
+document.getElementById("logo").onclick = ()=>{
+    location.href = "/"
+}
+
+
+
+
+
+
+
 const data=[
     {
     image_url:"https://ak1.ostkcdn.com/images/products/is/images/direct/4de7cd530f73638a351daf876ae132bef35c04f8/Danya-B.-11-inch-Indoor-Outdoor-Portable-Tabletop-Fire-Pit---Ethanol.jpg?impolicy=mediumlow",
