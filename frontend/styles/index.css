@@ -1,0 +1,15 @@
+#mainposter{
+    width: 100vw;
+    box-sizing: border-box;
+}
+#mainposter img{
+    width: 100%;
+    margin-left: 10px;
+    /* display: flex; */
+}
+#mainposter>img:first-child{
+    position: absolute;
+}
+#mainposter>img:last-child{
+    position: relative;
+}

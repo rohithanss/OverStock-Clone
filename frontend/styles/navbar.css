@@ -6,6 +6,7 @@
     width: 100vw;
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
   }
   
   #navigations a {
@@ -20,24 +21,26 @@
   
   #navigations {
     position: sticky;
-    width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
     top: 0;
     z-index: 1;
     background-color: white;
   }
   
   #navbarTop {
+    
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     height: 80px;
-    width: 90vw;
-    padding: 0px 5%;
+    /* padding: 0px 5%; */
+    width: 80%;
     margin: auto;
   }
   
   #navbarTop img {
-    width: 80px;
+    width: 120%;
     cursor: pointer;
   }
   
@@ -46,22 +49,30 @@
     margin-left: 10px;
     width: fit-content;
     align-items: center;
+    width: 8%;
+    justify-content: flex-start;
+    
+
    
   }
   #navbarTop > div:nth-child(2) {
     display: flex;
-   width: 60%;
+   width: 55%;
     justify-content: center;
     height: fit-content;
     align-items: center;
+    
+
   }
   #navbarTop > ul:nth-child(3) {
     display: flex;
-    width: 20%;
-    gap: 30px;
-    justify-content: center;
+    width: 8%;
+    gap: 10%;
+    justify-content: flex-end;
     height: fit-content;
     align-items: center;
+    
+
   }
   
   #navbarTop input[type="search"] {
@@ -87,16 +98,18 @@
   }
   
   #navigations ul i {
-    font-size: 20px;
+    font-size: 300%;
   }
   #navigations li{
       list-style: none;
   }
-  
+  #navbarBottom{
+    box-sizing: border-box;
+  }
   
   
   #navbarBottom ul {
-      
+    /* box-sizing: border-box; */
     width: 90vw;
     justify-content: space-between;
   }
@@ -156,9 +169,9 @@
     margin: 5px 0px;
     font-weight: bold;
   }
-  #navigations li.dropdown:last-child .dropdown-content,#navigations 
-  li.dropdown:nth-child(7) .dropdown-content,#navigations 
-  li.dropdown:nth-child(8) .dropdown-content,#navigations li.dropdown:nth-child(9) .dropdown-content,li.dropdown:nth-child(10) .dropdown-content {
+  #navigations li.dropdown:last-child .dropdown-content,
+  /* #navigations li.dropdown:nth-child(9) .dropdown-content, */
+  #navigations li.dropdown:nth-child(10) .dropdown-content {
     right: 0;
     left: auto;
   }
