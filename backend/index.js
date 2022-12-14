@@ -6,6 +6,11 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 const { connection } = require("./config/db");
 const { adminRouter } = require("./routers/admin.router");
+const { userRouter } = require("./routers/user.router");
+const { productRouter } = require("./routers/products.router");
+const { cartRouter } = require("./routers/cart.router");
+const { wishlistRouter } = require("./routers/wishlist.router");
+const { orderRouter } = require("./routers/orders.router");
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
@@ -16,8 +21,12 @@ app.get("/", (req, res) => {
   );
 });
 
+app.use("/products", productRouter);
 app.use("/admin", adminRouter);
-
+app.use("/wishlist", wishlistRouter);
+app.use("/user", userRouter);
+app.use("/cart", cartRouter);
+app.use("/orders", orderRouter);
 app.listen(PORT, async () => {
   try {
     connection;
