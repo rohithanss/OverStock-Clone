@@ -1,16 +1,16 @@
 const navbar = () => {
   return `<div id="navbarTop">
     <div> 
-        <img id="logo" src="https://i.ibb.co/nCfKyrn/KARS.png" alt="" srcset="">
+        <img id="logo" src="https://i.ibb.co/BGP5CcH/KARS.png" alt="" srcset="">
     </div>
     <div id="search">
         <input type="search" name="" id="" placeholder="Search... everything you find ships for free">
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <ul>
-        <li><i class="fa-regular fa-user"></i></li>
-        <li><i class="fa-regular fa-heart"></i></li>
-        <li><i class="fa-solid fa-cart-shopping"></i></li>
+        <li ><i class="fa-regular fa-user"></i></li>
+        <li ><i class="fa-regular fa-heart"></i></li>
+        <li class="cart_btn"><i id="cart" class="fa-solid fa-cart-shopping"></i></li>
     </ul>
 
 </div>
