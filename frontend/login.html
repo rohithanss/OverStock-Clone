@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+    <title>KARS - Login Page</title>
+  </head>
+  <body>
+    <div id="navigations"></div>
+    <div id="forms">
+      <div>
+        <h3>Create Account</h3>
+        <form action="" id="signup_form">
+          <label for="cname">Full Name*</label>
+          <input type="text" name="cname" id="cname" placeholder="Full Name" />
+          <label for="cemail">Email Address*</label>
+          <input type="email" name="cemail" id="cemail" placeholder="Email" />
+          <div class="passwords">
+            <div>
+              <label for="cpassword">Create Password*</label>
+              <input
+                type="password"
+                name="cpassword"
+                id="cpassword"
+                placeholder="Password"
+              />
+            </div>
+            <div>
+              <label for="ccpassword">Confirm Password*</label>
+              <input
+                type="password"
+                name="ccpassword"
+                id="ccpassword"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+          <button type="submit" id="signup_btn">Create Account</button>
+        </form>
+        <hr />
+        <button>Continue as Guest</button>
+        <p>
+          By creating an account or continuing as a Guest, you agree to our
+          <span> Terms & Conditions</span> and <span>Privacy Policy.</span>
+        </p>
+      </div>
+      <div>
+        <h3>Sign in</h3>
+        <form action="" id="login_form">
+          <label for="email">Email Address*</label>
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <label for="password">Password*</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+
+          <button type="submit" id="login_btn">Sign In</button>
+        </form>
+        <p class="forget_btn">Forget Your Password?</p>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/add05b7e25.js"
+  crossorigin="anonymous"
+></script>
+<script src="./src/scripts/login.js" type="module"></script>
