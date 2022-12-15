@@ -1,7 +1,59 @@
 #orders{
 
 
-    border: 1px solid red;
-    width: 100%;
+    /* border: 1px solid red; */
+    width: 95%;
     height: 1000px;
+    margin-left: 20px;
+    /* margin: auto; */
+}
+.minicontainer{
+
+    width: 100%;
+    display: flex;
+    height: 200px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* margin: auto; */
+    justify-content: space-between;
+}
+.image_order{
+  width: 20%;
+}
+.minicontainer2{
+
+
+    display: block;
+ 
+    margin-top: 50px;
+   
+}
+.statusBtn{
+    display: block;
+    width: 100px;
+    margin-right: 20px;
+    background-color: red;
+    border: 0px;
+    border-radius: 3px;
+    padding: 5px;
+}
+.buyAgain{
+    display: block;
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 10px;
+    background-color: green;
+    border: 0px;
+    border-radius: 3px;
+    padding: 5px;
+
+}
+.minicontainer3{
+    width: 50%;
+}
+#OrdersandReturns{
+    background-color: rgb(158, 112, 112);
+}
+#Overview{
+    background-color:white
 }
