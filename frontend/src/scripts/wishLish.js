@@ -1,3 +1,16 @@
+import navbar from "../components/navbar.js";
+import footer from "../components/footer.js";
+import { navEvents } from "../components/navevent.js";
+import { alertMsg } from "./alertMsg.js";
+
+window.onload = () => {
+  document.getElementById("navigations").innerHTML = navbar();
+
+  document.getElementById("footer").innerHTML = footer();
+
+  navEvents();
+};
+
 let url = "https://kars-stock.onrender.com";
 let key =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
@@ -60,14 +73,12 @@ const appendData = (data) => {
     image.className = "image1";
     let minidiv = document.createElement("div");
     minidiv.className = "minidiv";
-    minidiv.addEventListener("click",()=>{
-      remove(el._id)
-    })
+    minidiv.addEventListener("click", () => {
+      remove(el._id);
+    });
 
     let nameDiv = document.createElement("div");
-    nameDiv.className="nameDiv"
-
-
+    nameDiv.className = "nameDiv";
 
     let delimg = document.createElement("img");
     delimg.src =
@@ -77,8 +88,7 @@ const appendData = (data) => {
     remov1e.innerText = "Remove";
     remov1e.style.color = " rgb(255,31,44)";
 
-
-    nameDiv.append(name)
+    nameDiv.append(name);
     minidiv.append(delimg, remov1e);
 
     div.append(image, nameDiv, minidiv);
@@ -87,9 +97,6 @@ const appendData = (data) => {
   });
 };
 
-
-
-let remove=(id)=>{
-  console.log(id)
-}
-
+let remove = (id) => {
+  console.log(id);
+};

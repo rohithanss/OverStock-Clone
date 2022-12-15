@@ -1,5 +1,6 @@
 import navbar from "../components/navbar.js";
 import footer from "../components/footer.js";
+import { navEvents } from "../components/navevent.js";
 import { alertMsg } from "./alertMsg.js";
 
 const api = "https://kars-stock.onrender.com/";
@@ -9,9 +10,7 @@ window.onload = () => {
 
   document.getElementById("footer").innerHTML = footer();
 
-  document.getElementById("logo").onclick = () => {
-    location.href = "/";
-  };
+  navEvents();
 
   let signup_form = document.getElementById("signup_form");
   inputFieldsValidation();

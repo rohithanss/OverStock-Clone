@@ -1,8 +1,21 @@
+import navbar from "../components/navbar.js";
+import footer from "../components/footer.js";
+import { navEvents } from "../components/navevent.js";
+import { alertMsg } from "./alertMsg.js";
+
+window.onload = () => {
+  document.getElementById("navigations").innerHTML = navbar();
+
+  document.getElementById("footer").innerHTML = footer();
+
+  navEvents();
+};
+
 let container = document.getElementById("orders");
 
-
 let url = "http://localhost:7010";
-let key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg"
+let key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
 
 // import { alertMsg } from "./alertMsg.js";
 
@@ -14,8 +27,7 @@ let data = async () => {
   try {
     res = await fetch(`${url}/orders`, {
       headers: {
-        Authorization:
-          `Authorization ${key}`,
+        Authorization: `Authorization ${key}`,
       },
     });
     let data = await res.json();
@@ -91,7 +103,7 @@ append = (data) => {
 };
 
 let returnreq = async (id, status) => {
-  console.log("AAA")
+  console.log("AAA");
   let Status;
   if (status == "delivered") {
     Status = "return";
@@ -107,13 +119,17 @@ let returnreq = async (id, status) => {
     Status = "cancel";
   }
 
-  if (status == "Shipped"||status == "shipped" || status == "Placed" || status == "delivered") {
+  if (
+    status == "Shipped" ||
+    status == "shipped" ||
+    status == "Placed" ||
+    status == "delivered"
+  ) {
     try {
       let responce = await fetch(`${url}/orders/${Status}/${id}`, {
         method: "PATCH",
         headers: {
-          Authorization:
-          `Authorization ${key}`,
+          Authorization: `Authorization ${key}`,
         },
       });
       let data = await responce.json();
