@@ -8,7 +8,6 @@ const { AdminModel } = require("../models/AdminModel");
 const { ProductModel } = require("../models/ProductModel");
 const { OrderModel } = require("../models/OrderModel");
 const { UserModel } = require("../models/UserModel");
-const { reset } = require("nodemon");
 
 const adminRouter = Router();
 
@@ -67,19 +66,28 @@ adminRouter.get("/orders", async (req, res) => {
   const adminId = req.body.authId;
   let limit = req.query.limit || null;
   let skip = (req.query.page - 1) * limit;
-  let orderStatus = req.query.status;
-  // let sort = req.query.sort || -1;
-  console.log(orderStatus);
+  let orderStatus = req.query.status || "";
+  let sort = req.query.sort || -1;
+  // console.log(orderStatus);
   try {
     let orders = await OrderModel.find({
-      $and: [{ adminId }, { orderStatus: { $regex: orderStatus } }],
+      $and: [
+        { adminId },
+        { orderStatus: { $regex: orderStatus, $options: "i" } },
+      ],
     })
-      // .sort({ updatedAt: sort })
+      .sort({ updatedAt: sort })
       .limit(limit)
       .skip(skip)
       .populate("productId");
     // console.log(orders, "dfgd");
-    res.send({ orders, status: "success" });
+    let total = await OrderModel.countDocuments({
+      $and: [
+        { adminId },
+        { orderStatus: { $regex: orderStatus, $options: "i" } },
+      ],
+    });
+    res.send({ orders, total, status: "success" });
   } catch {
     res.send({ msg: "Error while fetching orders", status: "error" });
   }
@@ -113,14 +121,25 @@ adminRouter.get("/customer/:userID", async (req, res) => {
 // --------------------PRODUCTS ENDPOINTS
 
 adminRouter.get("/products", async (req, res) => {
+  const adminId = req.body.authId;
   let limit = req.query.limit || null;
   let skip = (req.query.page - 1) * limit;
+  let category = req.query.category || "";
+  let sort = req.query.sort || 0;
 
   try {
-    let products = await ProductModel.find({ adminId: req.body.authId })
-      .limit(limit)
-      .skip(skip);
-    let totalProducts = await ProductModel.countDocuments();
+    // let products = await ProductModel.find({
+    //   $and: [{ adminId }, { category: { $regex: category, $options: "i" } }],
+    // })
+    //   .sort({ stock: sort })
+    //   .limit(limit)
+    //   .skip(skip);
+    // let totalProducts = await ProductModel.countDocuments({
+    //   $and: [{ adminId }, { category: { $regex: category, $options: "i" } }],
+    // });
+    let products = await ProductModel.find({ adminId }).limit(limit).skip(skip);
+    let totalProducts = await ProductModel.countDocuments({ adminId });
+
     res.send({
       status: "success",
       products,
@@ -132,12 +151,15 @@ adminRouter.get("/products", async (req, res) => {
   }
 });
 
-adminRouter.patch("products/update/:productId", async (req, res) => {
+adminRouter.patch("/products/update/:productId", async (req, res) => {
   const _id = req.params.productId;
   const payload = req.body;
 
   try {
-    let resp = await ProductModel.findById({ _id }, { payload });
+    let resp = await ProductModel.findOneAndUpdate(
+      { _id, adminId: payload.authId },
+      payload
+    );
     if (resp == null) {
       res.send({ msg: "Invalid operation updating product", status: "fail" });
     } else {
@@ -145,6 +167,22 @@ adminRouter.patch("products/update/:productId", async (req, res) => {
     }
   } catch (err) {
     res.send({ msg: "Error while updating product", status: "error" });
+  }
+});
+
+adminRouter.post("/products/add/", async (req, res) => {
+  const adminId = req.body.authId;
+  const payload = req.body;
+
+  try {
+    let { name } = await AdminModel.findById({ _id: adminId });
+    let product = new ProductModel(payload);
+    product.adminId = adminId;
+    product.soldBy = name;
+    await product.save();
+    res.send({ msg: "Product added successfully", status: "success" });
+  } catch (err) {
+    res.send({ msg: "Error while adding product", status: "error" });
   }
 });
 

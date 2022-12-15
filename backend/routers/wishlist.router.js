@@ -1,7 +1,7 @@
 const { Router } = require("express");
 
 const { UserModel } = require("../models/UserModel");
-const { WishlistModel } = require("../models/WishlistModel");
+const { ListModel } = require("../models/ListModel");
 const tokenValidator = require("../middlewares/tokenAuth");
 
 const wishlistRouter = Router();
@@ -12,7 +12,7 @@ wishlistRouter.post("/add/:productId", async (req, res) => {
   let productId = req.params.productId;
   let userId = req.body.authId;
   try {
-    let item = await WishlistModel.create({ productId, userId });
+    let item = await ListModel.create({ productId, userId });
     await UserModel.findByIdAndUpdate(
       { _id: userId },
       { $push: { wishlist: item._id } }
@@ -34,7 +34,7 @@ wishlistRouter.get("/", async (req, res) => {
   const userId = req.body.authId;
 
   try {
-    let wishlist = await WishlistModel.find({ userId }).populate("productId");
+    let wishlist = await ListModel.find({ userId }).populate("productId");
 
     res.send({ status: "success", data: wishlist });
   } catch (err) {
@@ -46,7 +46,7 @@ wishlistRouter.delete("/delete/:wishlistId", async (req, res) => {
   const userId = req.body.authId;
   const wishlistId = req.params.wishlistId;
   try {
-    let item = await WishlistModel.findOneAndDelete({
+    let item = await ListModel.findOneAndDelete({
       _id: wishlistId,
       userId,
     });
