@@ -1,6 +1,6 @@
 div{
     /* border: 1px solid red; */
-    height: 20px;
+    /* height: 20px; */
     /* height: 200px; */
     
 }
@@ -9,7 +9,7 @@ div{
     width: 95%;
     /* height: 200px; */
     /* border: 1px solid green; */
-    margin-top: 40px;
+    /* margin-top: 40px; */
     margin-left: 5%;
 }
 #Dashboardinfo{
@@ -21,6 +21,7 @@ div{
 #listoption{
     width: 30%;
     height: 1500px;
+    margin-top: 10px;
     /* border: 1px solid red; */
     box-shadow: rgba(0, 0, 0, 0.12) 1px 0px 1px, rgba(0, 0, 0, 0.24) 0px 0px 0px;
 
@@ -70,7 +71,7 @@ div{
 .Dashboardtopseler{
     /* border: 1px solid green; */
     margin: auto;
-    margin-top: 150px;
+    /* margin-top: 150px; */
     /* height: 40px; */
     align-items: center;
     margin-left: 20px;
@@ -105,7 +106,9 @@ div{
     margin-top: 80px;
 }
 
-
+#Overview{
+    background-color: rgb(158, 112, 112);
+}
 
 
 
