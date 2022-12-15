@@ -32,7 +32,7 @@ const appendProducts=(data)=>{
         let image=document.createElement("img");
         image.class="imagepro";
         image.src=el.image;
-       image.style.width="340px";
+        image.style.width="340px";
         let price=document.createElement("b");
         price.innerHTML=`Sale Starts at INR ${el.price}`
 
