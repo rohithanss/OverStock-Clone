@@ -1,112 +1,131 @@
-
-#footer{
-    margin-top: 200px;
+#footer {
+  margin-top: 200px;
 }
 
-
-#cproduct>div{
-height: 250px;
-width: 100%;
-display: flex;
-gap: 20px;
-border: 0.5px solid rgb(221,223,226);
-
+#container > div > h2 {
+  margin: 25px 50px;
 }
 
-#cproduct>div>div>img{
-    height: 85%;
-    margin-top: 20px;
-    margin-left: 20px;
+#cproduct > div {
+  /* height: 250px; */
+  width: 90%;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  border: 0.5px solid rgb(221, 223, 226);
+}
+#cproduct > div > div:first-child {
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+#cproduct > div > div > img {
+  width: 100%;
 }
 
-
-#cproduct{
-    width: 75%;
+#cproduct {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-#cproduct{
-display: flex;
-flex-direction: column;
-gap: 20px;
+.order-detail-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+}
+.order-detail-div > p {
+  font-size: 16px;
+}
+.order-detail-div > div {
+  margin: 0;
+  padding: 0;
 }
 
-#cout{
-    width: 24%;
-    
-    
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-#cout>div{
-    border: 0.01px solid rgb(221,223,226);
-    
-   
+#body {
+  display: flex;
+  justify-content: center;
 }
 
-#body{
-    display: flex;
-    justify-content: space-between;
+#quantity {
+  /* height: 35px; */
+  padding: 10px;
+  width: 75px;
+  border: 0.5px solid rgb(147, 145, 145);
 }
 
-#quantity{
-    height: 35px;
-    width: 75px;
-    border:0.5px solid rgb(147, 145, 145);
+#cardbutton {
+  /* margin-top: 45px; */
+  display: flex;
+  padding: 20px 0;
+  gap: 30px;
 }
 
-#cardbutton{
-    margin-top: 45px;
+#cardbutton > button {
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+}
+#cout {
+  width: 24%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#cout > div {
+  border: 0.01px solid rgb(221, 223, 226);
+}
+#plus {
+  font-size: 40px;
+  /* margin-top: 10px; */
 }
 
-#cardbutton>button{
-    border: none;
-    background-color: white;
-    text-decoration:underline;
+#promo {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-#plus{
-    font-size: 40px;
-    margin-top: 10px;
+#itamdiv {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
 }
 
-#promo{
-    display: flex;
-    gap: 10px;
+#checkoutdetails {
+  padding: 20px 0;
+}
+#cartline {
+  background-color: rgb(147, 145, 145);
+  height: 1px;
+  width: 80%;
+
+  margin: 15px auto;
 }
 
-#itamdiv{
-    display: flex;
-    justify-content: space-around;
-    font-weight: 700;
+#totaldiv {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
 }
 
-#cartline{
-    background-color: rgb(147, 145, 145);
-    height: 1px;
-    width: 80%;
-    margin: auto;
+#checkoutbutton_div {
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
-
-#totaldiv{
-    display: flex;
-    justify-content: space-around;
-}
-
-#checkoutbutton_div{
-   margin: auto;
-   display: flex;
-   justify-content: center;
-}
-
-#checkoutbutton{
-    margin: auto;
-    background-color: black;
-    color: white;
-    font-size: larger;
-    height: 50px;
-    width: 80%;
-    /* margin-left: 30px; */
-   
+#checkoutbutton {
+  margin: auto;
+  background-color: black;
+  color: white;
+  font-size: larger;
+  height: 50px;
+  width: 80%;
+  /* margin-left: 30px; */
 }

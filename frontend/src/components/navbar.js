@@ -8,9 +8,9 @@ const navbar = () => {
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <ul>
-        <li ><i class="fa-regular fa-user"></i></li>
-        <li ><i class="fa-regular fa-heart"></i></li>
-        <li class="cart_btn"><i id="cart" class="fa-solid fa-cart-shopping"></i></li>
+        <li class="auth_btn"><i class="fa-regular fa-user"></i><p>Account  </p> </li>
+        <li class="wishlist_btn"><i class="fa-regular fa-heart"></i> <p>Wishlist </p></li>
+        <li class="cart_btn"><i id="cart" class="fa-solid fa-cart-shopping"></i> <p> Cart</p></li>
     </ul>
 
 </div>
@@ -66,7 +66,7 @@ const navbar = () => {
                    
                 </div>
                 <div>
-                    <h4>Dining, Kitchen & Bar</h4>
+                    <h4 class="refrigerator_page">Dining, Kitchen & Bar</h4>
                     <a href="">Kitchen & Dining Sets</a>
                     <a href="">Kitchen & Dining Chairs</a>
                     <a href="">Kitchen & Dining Tables</a>
