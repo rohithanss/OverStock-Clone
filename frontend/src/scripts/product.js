@@ -11,7 +11,7 @@ document.getElementById("logo").onclick = ()=>{
 
 const getProducts=async()=>{
 try{
-let result=await fetch(`http://localhost:7010/products?category=refrigerator`)
+let result=await fetch(`https://kars-stock.onrender.com/products?category=refrigerator`)
 
 console.log(result)
 let data= await result.json()
@@ -27,7 +27,12 @@ const appendProducts=(data)=>{
    let data_div=document.getElementById("betright1")
 
     data.forEach((el)=>{
+   
        let div=document.createElement("div");
+       div.onclick=()=>{
+        localStorage.setItem("product_id",el._id);
+        window.location.href="product2.html"
+       }
        div.setAttribute("class","singleProduct")
         let image=document.createElement("img");
         image.class="imagepro";

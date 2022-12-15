@@ -1,3 +1,74 @@
-body{
+#data_div{
     width: 80%;
+    margin: auto;
+    display: flex;
+    margin-top: 3%;
+}
+.slider{
+    position: relative;
+	width: 40%;
+}
+#slide{
+    width: 100%;
+
+}
+
+#btn1{
+    position: absolute;
+	bottom: 50%;
+    padding: 5% 2%;
+ 
+}
+#btn3{
+    position: absolute;
+	 bottom: 7%;
+    padding: 5% 2%; 
+    left: 0%;
+ 
+}
+.checked {
+    color: orange;
+  }
+#btn2{
+    position: absolute;
+	bottom: 50%;
+    padding: 5% 2%;
+    left:94%;
+}
+#btn4{
+    position: absolute;
+	bottom: 7%;
+    padding: 5% 2%;
+    /* left:94%; */
+}
+#details{
+    margin: 0% 3%;
+    width: 35%;
+    font-size: 140%;
+    color: rgb(73, 71, 71);
+}
+.gray{
+    color: rgb(164, 162, 162);
+    font-size: 12px;
+}
+#size{
+    color: rgb(115, 114, 114);
+    font-size: 14px;  
+    margin: 5% 0%;
+}
+#size>*{
+    border: 1px solid rgb(180, 178, 178);
+    padding: 2%;
+
+}
+#price~span{
+    font-size: 16px;  
+}
+#imgsee{
+    display: flex;
+    padding: 4%;
+    margin: 4%;
+}
+#imgsee>*{
+    margin: 2%;
 }
