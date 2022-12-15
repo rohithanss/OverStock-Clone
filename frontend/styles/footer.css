@@ -4,11 +4,11 @@
 
 }
 #footer{
-  box-sizing: border-box;
     width: 100%;
 }
-#footer p, li{
+#footer p,#footer li{
     font-size: 12px;
+    line-height: 20px;
 }
 #footer ul{
     list-style: none;
@@ -16,16 +16,20 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    margin-right:4%;
+    
+    
 }
 
 #footertop{
-    width: 80%;
+    width: 85%;
     margin: auto;
     padding: 3%;
 
     display: flex;
     justify-content: space-between;
+}
+#footer h3{
+    margin-bottom: 5px;
 }
 #seconddiv{
     height: max-content;

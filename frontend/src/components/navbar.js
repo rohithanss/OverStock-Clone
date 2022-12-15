@@ -1,7 +1,7 @@
 const navbar = () => {
   return `<div id="navbarTop">
     <div> 
-        <img id="logo" src="https://i.ibb.co/nCfKyrn/KARS.png" alt="" srcset="">
+        <img id="logo" src="https://i.ibb.co/BGP5CcH/KARS.png" alt="" srcset="">
     </div>
     <div id="search">
         <input type="search" name="" id="" placeholder="Search... everything you find ships for free">

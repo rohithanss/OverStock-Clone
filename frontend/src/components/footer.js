@@ -3,7 +3,7 @@ return `
 <div id="firstdiv">
 
     <div id="footertop">
-        <div><h3>Account</h3>
+        <div><h3>ACCOUNT</h3>
         <p>Orders & Returns</p>
         <p>Email Preferences</p>
         <p>Account Settings</p></div>
@@ -14,7 +14,7 @@ return `
         <p>International Help</p>
         <p>Accessibility</p></div>
         <div><h3>COMPANY INFORMATION</h3>
-        <p>About Overstock™</p>
+        <p>About KARSStock™</p>
         <p>Contact Us</p>
         <p>Careers</p>
         <p>Investor Relations</p>
