@@ -98,7 +98,7 @@ const append = async (data) => {
     saveleter.innerText = "Save For Later";
     saveleter.style.cursor = "pointer";
     saveleter.addEventListener("click", () => {
-      saveleteritam(ele._id);
+      saveleteritam(el._id,ele._id);
     });
 
     button_div.append(remove, saveleter);
@@ -179,34 +179,20 @@ const removeitam = async (id) => {
   }
 };
 
-const saveleteritam = async (id) => {
+const saveleteritam = async (pid,cid) => {
   try {
-    let res = await fetch(`${api}/wishlist/add/${id}`, {
+
+    
+    let res = await fetch(`${api}/wishlist/add/${pid}`, {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,
       },
     });
-    removeitam(id);
+    removeitam(cid);
     post();
   } catch (err) {
     console.log(err);
   }
 };
 
-//${api}/cart/delete/6399c1b5ba4db38889d86808
-// const checkout=()=>{
-//     let maindiv=document.getElementById("checkoutdetails");
-
-//     let itamdiv=document.createElement("div");
-//     let itam=document.createElement("p");
-//     itam.innerText=`(${totalitam})  Items`
-//     let itamtotal=document.createElement("p");
-//     itamtotal.innerText="INR "+ yourtotal;
-
-//     itamdiv.append(itam,itamtotal)
-
-//     maindiv.append(itamdiv)
-// }
-
-//  checkout();
