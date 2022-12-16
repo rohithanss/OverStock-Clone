@@ -10,11 +10,15 @@ window.onload = () => {
 
   navEvents();
 };
+let category="Mirrors";
+
+document.getElementById("cat1").innerHTML=`${category}`;
+document.getElementById("cat2").innerHTML=`${category}  Sale`;
 
 const getProducts = async () => {
   try {
     let result = await fetch(
-      `https://kars-stock.onrender.com/products?category=refrigerator`
+      `https://kars-stock.onrender.com/products?${category}`
     );
 
     console.log(result);
@@ -35,17 +39,27 @@ const appendProducts = (data) => {
       localStorage.setItem("product_id", el._id);
       window.location.href = "product2.html";
     };
+
     div.setAttribute("class", "singleProduct");
+
+    let icon = document.createElement("i");
+    // icon.innerHTML=f4c7;
+     icon.setAttribute("class","fa-light fa-circle-heart");
+
     let image = document.createElement("img");
-    image.class = "imagepro";
+
+image.className="imgPro";
     image.src = el.image;
-    image.style.width = "340px";
+
+
     let price = document.createElement("b");
     price.innerHTML = `Sale Starts at INR ${el.price}`;
-
+price.style.color="red";
     let title = document.createElement("p");
     title.innerHTML = el.title;
-    div.append(image, price, title);
+    title.setAttribute("class","small")
+
+    div.append(icon,image, price, title);
     data_div.append(div);
   });
 };
