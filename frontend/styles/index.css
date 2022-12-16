@@ -17,9 +17,6 @@ h1 {
   text-align: center;
   margin: 10px;
 }
-#deal img{
- /* width:80%; */
-}
 
 .absdeals img:first-child{
     display: flex;
