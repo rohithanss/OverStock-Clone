@@ -1,0 +1,51 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#maincard{
+    border: 1px solid gray;
+    width: 55%;
+    margin-left: 13%;
+    display: flex;
+    gap: 20px;
+    
+}
+#paymethod{
+    width: 40%;
+    background-color: rgb(243,244,245);
+}
+.paymentname{
+    display: flex;
+    flex-direction: column;
+    line-height: 0px;
+    margin-left: 10px;
+}
+.paymentname>:nth-child(2){
+   margin-top: 0px;
+   color: #6e7883;
+}
+#craditcard{
+    display: flex;
+    align-items: center;
+    
+}
+
+#upi{
+    display: flex;
+    align-items: center;
+    
+    
+}
+#ibanking{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+#cod{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    
+}
