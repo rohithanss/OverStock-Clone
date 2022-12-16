@@ -1,15 +1,39 @@
-#mainposter{
-    width: 100vw;
-    box-sizing: border-box;
+#mainposter {
+  width: 100vw;
+  box-sizing: border-box;
 }
-#mainposter img{
-    width: 100%;
-    margin-left: 10px;
-    /* display: flex; */
+#mainposter img {
+  width: 100%;
+  margin-left: 10px;
+  /* display: flex; */
 }
-#mainposter>img:first-child{
+#mainposter > img:first-child {
+  position: absolute;
+}
+#mainposter > img:last-child {
+  position: relative;
+}
+h1 {
+  text-align: center;
+  margin: 10px;
+}
+#deal img{
+ /* width:80%; */
+}
+
+.absdeals img:first-child{
+    display: flex;
     position: absolute;
+    width:10%;
+    /* bottom: 30%; */
+    /* top:60%; */
 }
-#mainposter>img:last-child{
-    position: relative;
+.absdeals img:last-child{
+    width:60%;
+    margin-top: 30%;
+}
+
+#deal{
+    display: flex;
+    margin:auto;
 }
