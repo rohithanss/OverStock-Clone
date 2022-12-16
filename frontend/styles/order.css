@@ -53,7 +53,12 @@
 }
 #OrdersandReturns{
     background-color: rgb(158, 112, 112);
+    cursor: pointer;
 }
 #Overview{
-    background-color:white
+    background-color:white;
+    cursor: pointer;
+}
+#listoption{
+    cursor: pointer;
 }

@@ -1,117 +1,106 @@
-div{
-    /* border: 1px solid red; */
-    /* height: 20px; */
-    /* height: 200px; */
-    
+div {
+  /* border: 1px solid red; */
+  /* height: 20px; */
+  /* height: 200px; */
 }
-#bodydiv{
-    display: flex;
-    width: 95%;
-    /* height: 200px; */
-    /* border: 1px solid green; */
-    /* margin-top: 40px; */
-    margin-left: 5%;
+#bodydiv {
+  display: flex;
+  width: 95%;
+  /* height: 200px; */
+  /* border: 1px solid green; */
+  /* margin-top: 40px; */
+  margin-left: 5%;
 }
-#Dashboardinfo{
-
-    margin-left: 1%;
-    /* border: 1px solid red; */
-    height: 1000px;
+#Dashboardinfo {
+  margin-left: 1%;
+  /* border: 1px solid red; */
+  height: 1000px;
 }
-#listoption{
-    width: 30%;
-    height: 1500px;
-    margin-top: 10px;
-    /* border: 1px solid red; */
-    box-shadow: rgba(0, 0, 0, 0.12) 1px 0px 1px, rgba(0, 0, 0, 0.24) 0px 0px 0px;
-
+#listoption {
+  width: 30%;
+  height: 1500px;
+  margin-top: 10px;
+  /* border: 1px solid red; */
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 0px 1px, rgba(0, 0, 0, 0.24) 0px 0px 0px;
 }
-#listoption>div{
-    /* border: 1px  solid red; */
-    height: 50px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    display: flex;
-    align-items: center;
-    padding-left: 7px;
-
-
+#listoption > div {
+  /* border: 1px  solid red; */
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
 }
-.DashboardDiv{
-    display: flex;
-    /* border: 1px solid green; */
-    height: 120px;
-    width: 90%;
-    margin-left: 20px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+.DashboardDiv {
+  display: flex;
+  /* border: 1px solid green; */
+  height: 120px;
+  width: 90%;
+  margin-left: 20px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
-.DashboardDiv img{
-    display: block;
-    width: 25%;
-    height: 70px;
-
+.DashboardDiv img {
+  display: block;
+  width: 25%;
+  height: 70px;
 }
-.DashboardDiv h4{
-    display:block;
-    /* width: 40%; */
-    /* height: 30px; */
-
+.DashboardDiv h4 {
+  display: block;
+  /* width: 40%; */
+  /* height: 30px; */
 }
-#DashboardBlock{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 2px;
+#DashboardBlock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
 }
-#Dashboardinfo{
-    width: 100%;
+#Dashboardinfo {
+  width: 100%;
 }
-#Dashboardinfo>h3{
-    margin-left: 20px;
+#Dashboardinfo > h3 {
+  margin-left: 20px;
 }
 
-.Dashboardtopseler{
-    /* border: 1px solid green; */
-    margin: auto;
-    /* margin-top: 150px; */
-    /* height: 40px; */
-    align-items: center;
-    margin-left: 20px;
+.Dashboardtopseler {
+  /* border: 1px solid green; */
+  margin: auto;
+  /* margin-top: 150px; */
+  /* height: 40px; */
+  align-items: center;
+  margin-left: 20px;
 }
 
-
-.seller-div{
-    margin-top: 20px;
-    /* border: 1px solid red; */
-    height: 300px;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    width: 95%;
-    gap: 20px;
-    margin-left: 20px;
-
-
+.seller-div {
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 95%;
+  gap: 20px;
+  margin-left: 20px;
 }
 
-.seller-div img{
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-
+.seller-div img {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
-.seller-div div{
-    /* border: 1px solid red; */
-    height: 310px;
-}
-
-#Dashboardtopseler{
-    margin-left: 20px;
-    margin-top: 80px;
+.seller-div div {
+  /* border: 1px solid red; */
+  height: 310px;
 }
 
-#Overview{
-    background-color: rgb(158, 112, 112);
+#Dashboardtopseler {
+  margin-left: 20px;
+  margin-top: 80px;
 }
 
+#Overview {
+  background-color: rgb(158, 112, 112);
+}
 
-
-
-
-
+#listoption {
+  cursor: pointer;
+}
