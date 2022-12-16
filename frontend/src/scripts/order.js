@@ -13,10 +13,9 @@ window.onload = () => {
 
 let container = document.getElementById("orders");
 
-let url = "http://localhost:7010";
-let key =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
-
+let url = "https://kars-stock.onrender.com";
+let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
+let key1=localStorage.getItem("user_token")
 // import { alertMsg } from "./alertMsg.js";
 
 // let res = {msg:"hi ", status: "success/fail/error"};
@@ -25,7 +24,7 @@ let key =
 
 let data = async () => {
   try {
-    res = await fetch(`${url}/orders`, {
+    let res = await fetch(`${url}/orders`, {
       headers: {
         Authorization: `Authorization ${key}`,
       },
@@ -35,6 +34,7 @@ let data = async () => {
     console.log(data.data);
     append(new_data);
   } catch (err) {
+    console.log(err);
     console.log("fail while featching");
   }
 };
@@ -42,7 +42,7 @@ data();
 
 console.log("");
 
-append = (data) => {
+let append = (data) => {
   data.forEach((el) => {
     let div = document.createElement("div");
     div.className = "minicontainer";
@@ -59,7 +59,7 @@ append = (data) => {
     let orderDate = document.createElement("p");
     orderDate.innerText = "Orderd On : " + el.createdAt;
 
-    div3 = document.createElement("div");
+    let div3 = document.createElement("div");
     div3.className = "minicontainer3";
 
     let div2 = document.createElement("div");
@@ -152,10 +152,111 @@ const buyagain = (id) => {
 document.getElementById("Overview").addEventListener("click", () => {
   window.location = "./Overview.html";
 });
-document.getElementById("MyReviews").addEventListener("click", () => {
-  window.location = "";
+document.getElementById("OrdersandReturns").addEventListener("click", () => {
+  location.reload()
 });
+// document.getElementById("MyReviews").addEventListener("click", () => {
+//   window.location = "";
+// });
 
 document.getElementById("MyLists").addEventListener("click", () => {
-  window.location = "";
+  getData();
 });
+
+
+
+
+document.getElementById("Overview").style.backgroundColor="white"
+
+
+const getData = async () => {
+
+  document.getElementById("MyLists").style.backgroundColor="rgb(158, 112, 112)"
+  document.getElementById("OrdersandReturns").style.backgroundColor="white"
+  document.getElementById("Overview").style.backgroundColor="white"
+  
+  try {
+   let  res = await fetch(`${url}/wishlist`, {
+      headers: {
+        Authorization: `Authorization ${key}`,
+      },
+    });
+    let data = await res.json();
+    //   let new_data = data.data;
+    console.log(data.data);
+    appendData(data.data);
+    //   append(new_data);
+  } catch (err) {
+    console.log("fail while featching fev List");
+  }
+};
+
+
+const appendData = (data) => {
+
+  container.innerHTML=null
+  let container1 = document.createElement("div");
+    container1.setAttribute("id","contentDiv")
+
+  data.forEach((el) => {
+    let div = document.createElement("div");
+    div.className = "cards";
+
+    let name = document.createElement("p");
+    name.innerText = el.productId.title;
+    name.className = "Name1";
+
+    let image = document.createElement("img");
+    image.src = el.productId.image;
+    image.className = "image1";
+    let minidiv = document.createElement("div");
+    minidiv.className = "minidiv";
+    minidiv.addEventListener("click", () => {
+      remove(el._id);
+    });
+
+    let nameDiv = document.createElement("div");
+    nameDiv.className = "nameDiv";
+
+    let delimg = document.createElement("img");
+    delimg.src =
+      "https://w7.pngwing.com/pngs/271/838/png-transparent-computer-icons-delete-icon-white-text-logo.png";
+    delimg.className = "delimg";
+    let remov1e = document.createElement("p");
+    remov1e.innerText = "Remove";
+    remov1e.style.color = " rgb(255,31,44)";
+
+    nameDiv.append(name);
+    minidiv.append(delimg, remov1e);
+
+    div.append(image, nameDiv, minidiv);
+    container1.append(div);
+    container.append(container1)
+    // console.log(el.productId)
+  });
+};
+
+let remove = async(id) => {
+  console.log(id);
+
+try{
+  let res = await fetch(`${url}/wishlist/delete/${id}`, {
+    method:"DELETE",
+    headers: {
+      Authorization: `Authorization ${key}`,
+    },
+  });
+  let data =res.json()
+  console.log(data)
+
+  getData();
+
+
+
+}catch(err){
+  console.log(err)
+  console.log("error while removing element")
+}
+
+
+};
