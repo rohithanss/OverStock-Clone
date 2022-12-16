@@ -1,0 +1,267 @@
+main {
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  box-sizing: border-box;
+}
+main > div {
+  width: 80%;
+  /* border: 2px solid red; */
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid rgb(207, 207, 207);
+  position: relative;
+}
+#searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 50%;
+}
+#searchBar > i {
+  font-size: 16px;
+}
+#searchBar > input {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+::-webkit-input-placeholder {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+#searchBar + div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+#searchBar + div > i {
+  font-size: 19px;
+}
+header .letter_icon {
+  cursor: pointer;
+}
+
+#h_profile_menu {
+  width: 120px;
+  position: absolute;
+  top: 100%;
+  left: 90%;
+  z-index: 100;
+}
+
+#logo_name {
+  display: none;
+}
+
+section {
+  padding: 20px 30px;
+  background-color: #f9fafb;
+  box-sizing: border-box;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+/* ------------------------------------- CONTAINER STYLING ----------------- */
+
+#container {
+  width: 100%;
+  min-height: 50vh;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+  background-color: white;
+  padding: 25px 30px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.container-heading {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.container-heading > * {
+  cursor: pointer;
+  text-decoration: none;
+}
+.container-heading > a > h3 {
+  color: gray;
+}
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-nav select {
+  background: none;
+  padding: 7px;
+  font-weight: 600;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  outline: none;
+  margin: 5px 0;
+}
+
+.container-nav select:hover {
+  background-color: rgb(244, 244, 244);
+}
+.container-searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+  /* border: 1px solid rgb(202, 202, 202); */
+}
+.container-searchBar > i {
+  color: gray;
+}
+.container-searchBar > input {
+  outline: none;
+  border: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  box-sizing: border-box;
+}
+
+th {
+  border-top: 1px solid rgb(202, 202, 202);
+  border-bottom: 1px solid rgb(202, 202, 202);
+  color: gray;
+  padding: 10px 5px;
+  font-size: 13px;
+}
+tbody > tr {
+  cursor: pointer;
+}
+tbody > tr:hover {
+  background-color: rgb(244, 244, 244);
+}
+td {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding: 10px 5px;
+  text-align: center;
+  color: rgb(50, 50, 50);
+  font-size: 12px;
+}
+
+.container-pagination {
+  display: flex;
+  justify-content: space-between;
+}
+.container-pagination * {
+  font-size: 12px;
+  color: gray;
+}
+.container-pagination > div:last-child {
+  display: flex;
+  gap: 15px;
+}
+.container-pagination > div:last-child > span:last-child {
+  display: flex;
+  gap: 10px;
+}
+.container-pagination > div:last-child > span:last-child > * {
+  cursor: pointer;
+}
+/* ------------------------------------- CONTAINER STYLING End----------------- */
+
+@media screen and (max-width: 1000px) {
+  nav {
+    position: fixed;
+    width: 30%;
+    background-color: white;
+    z-index: 101;
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+  .show-nav {
+    transform: translateX(0);
+  }
+  #hide-nav {
+    display: contents;
+  }
+  main > div {
+    width: 100%;
+  }
+  header {
+    padding: 5px 30px;
+  }
+  #logo_name {
+    display: flex;
+  }
+  .hamburger {
+    font-size: 30px;
+    padding-right: 15px;
+    cursor: pointer;
+  }
+  .hamburger:hover {
+    color: #000000;
+  }
+  #searchBar {
+    width: auto;
+    /* border: 1px solid gray; */
+  }
+}
+@media screen and (max-width: 800px) and (min-width: 660px) {
+  nav {
+    position: fixed;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 661px) {
+  nav {
+    position: fixed;
+    width: 100%;
+  }
+  #searchBar {
+    display: none;
+  }
+  tr td:nth-child(3),
+  tr th:nth-child(3) {
+    display: none;
+  }
+  tr td:nth-child(4),
+  tr th:nth-child(4) {
+    display: none;
+  }
+  tr td:nth-child(5),
+  tr th:nth-child(5) {
+    display: none;
+  }
+  tr td:last-child,
+  tr th:last-child {
+    display: table-cell;
+  }
+}
+
+#overlay {
+  position: fixed;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.199);
+  z-index: 100;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  transition: all 10000s ease-in-out 0s;
+}

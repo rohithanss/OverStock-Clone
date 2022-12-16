@@ -1,0 +1,105 @@
+/* --------------------------------------Order Details ----------------------------- */
+.order-page > span:first-child {
+  color: rgb(180, 92, 235);
+  cursor: pointer;
+  padding: 0 10px;
+}
+#order-number {
+  width: 100%;
+  padding: 20px 30px;
+  margin: 20px 0;
+  /* height: 50vh; */
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+}
+#order-number > div {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+#order-number > div:first-child > div:first-child {
+  display: flex;
+  gap: 5px;
+}
+#order-number > div:last-child > div {
+  display: flex;
+  padding-top: 20px 0;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+#order-number > div:last-child > div > p:first-child {
+  font-weight: 500;
+}
+
+#order-summary {
+  width: 100%;
+  padding: 20px 30px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+}
+
+.order-detail-table {
+  margin-top: 40px;
+}
+.order-detail-table td {
+  border: none;
+}
+.order-detail-table + div {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#order-customer {
+  width: 100%;
+  padding: 20px 30px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+}
+#order-customer > h1 + div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 30px 0;
+}
+#order-customer > h1 + div > div {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+}
+#order-customer > h1 + div * {
+  font-size: 30px;
+}
+#order-customer > h1 + div + div {
+  display: flex;
+  justify-content: space-between;
+}
+#order-customer > h1 + div + div > div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+#order-customer > h1 + div + div > div > p:first-child {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 750px) {
+  .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .product-card > p {
+    padding-left: 50px;
+  }
+}
