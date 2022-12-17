@@ -3,14 +3,30 @@ body{
     padding: 0px;
 }
 
+#mheading{
+    margin-left:13% ;
+    margin-top: 3%;
+}
+#sheading{
+    margin-left:13% ;
+    margin-top: 5%;
+}
+
 #maincard{
+    
     border: 1px solid gray;
-    width: 55%;
+    width: 49%;
     margin-left: 13%;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    
     
 }
+#dopayment{
+    /* border: 1px solid red; */
+    margin-right: 30px;
+}
+
 #paymethod{
     width: 40%;
     background-color: rgb(243,244,245);
@@ -18,7 +34,7 @@ body{
 .paymentname{
     display: flex;
     flex-direction: column;
-    line-height: 0px;
+    
     margin-left: 10px;
 }
 .paymentname>:nth-child(2){
@@ -28,13 +44,13 @@ body{
 #craditcard{
     display: flex;
     align-items: center;
-    
+    margin-top: 20px;
 }
 
 #upi{
     display: flex;
     align-items: center;
-    
+    margin-top: 20px;
     
 }
 #ibanking{
@@ -47,5 +63,143 @@ body{
     display: flex;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
     
 }
+
+
+#footer{
+    margin-top: 500px;
+}
+
+
+#carditcarddetail>:nth-child(1){
+
+    margin-top: 25px;
+
+}
+#carditcarddetail>:nth-child(3)>input{
+    width: 100%;
+    margin-top: 30px;
+    
+
+}
+#carditcarddetail>:nth-child(4){
+    margin-top: 20px;
+    
+}
+
+.carddetail{
+    height: 40px;
+}
+
+#paybutton{
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: rgb(232,0,113);
+    border: none;
+    margin-top: 15px;
+}
+
+#savedetail{
+    margin-top: 15px;
+}
+
+
+
+
+
+
+#upidetail>:nth-child(1){
+
+    margin-top: 25px;
+
+}
+#upidetail>:nth-child(3)>input{
+    width: 100%;
+    margin-top: 30px;
+    
+
+}
+#upidetail>:nth-child(4){
+    margin-top: 20px;
+    
+}
+
+.upidetail{
+    height: 40px;
+}
+
+
+
+#savedetail{
+    margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#netbdetail>:nth-child(1){
+
+    margin-top: 25px;
+
+}
+#netbdetail>:nth-child(3)>input{
+    width: 100%;
+    margin-top: 30px;
+    
+
+}
+#netbdetail>:nth-child(4){
+    margin-top: 20px;
+    
+}
+
+.netdetail{
+    height: 40px;
+}
+
+
+
+#savedetail{
+    margin-top: 15px;
+}
+
+
+.bankname{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+#coddetail>:nth-child(1){
+
+    margin-top: 25px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
