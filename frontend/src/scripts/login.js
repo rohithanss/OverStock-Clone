@@ -115,6 +115,9 @@ async function login(form) {
         localStorage.setItem("user_token", res.token);
       }
       alertMsg(res.msg, res.status);
+      setTimeout(() => {
+        window.location.href = "Overview.html";
+      }, 250);
     } catch (err) {
       btn.innerHTML = "Create Account";
       btn.disabled = false;

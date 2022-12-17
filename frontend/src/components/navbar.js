@@ -1,4 +1,43 @@
+let token = localStorage.getItem("user_token") || null;
+const api = "https://kars-stock.onrender.com/";
+
+var profile;
+var cart;
+if (token == null) {
+  profile = "Signup/Login";
+  cart = 0;
+} else {
+  //   profile = "Account";
+  try {
+    let res = await getCart();
+    console.log(res);
+    if (res.status) {
+      profile = "Account";
+      cart = res.cart;
+    } else {
+      profile = "Signup/Login";
+      cart = 0;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+async function getCart() {
+  let res = await fetch(`${api}cart`, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+  res = await res.json();
+  if (res.status == "success") {
+    console.log(res);
+    return { status: true, cart: res.data.length };
+  } else {
+    return { status: false };
+  }
+}
 const navbar = () => {
+  /*html*/
   return `<div id="navbarTop">
     <div> 
         <img id="logo" src="https://i.ibb.co/BGP5CcH/KARS.png" alt="" srcset="">
@@ -8,16 +47,16 @@ const navbar = () => {
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <ul>
-        <li class="auth_btn"><i class="fa-regular fa-user"></i><p>Account  </p> </li>
+        <li class="auth_btn"><i class="fa-regular fa-user"></i><p>${profile}</p></li>
         <li class="wishlist_btn"><i class="fa-regular fa-heart"></i> <p>Wishlist </p></li>
-        <li class="cart_btn"><i id="cart" class="fa-solid fa-cart-shopping"></i> <p> Cart</p></li>
+        <li class="cart_btn"><i id="cart" class="fa-solid fa-cart-shopping"></i><p>Cart</p> <span class="cartCount">${cart}</span></li>
     </ul>
 
 </div>
 <div id="navbarBottom">
     <hr>
     <ul>
-        <li class="dropdown">Furniture
+        <li class="dropdown furnitureProducts">Furniture
             <div class="dropdown-content">
                 <div>
                     <h4>Living Room Furniture</h4>
@@ -88,52 +127,50 @@ const navbar = () => {
                 </div>
             </div>
         </li>
-        <li class="dropdown">Rugs
+        <li class="dropdown artProducts" >Art
             <div class="dropdown-content">
                 <div>
-                    <h4>Area Rugs By Size</h4>
-                    <a href="">3' x 5'</a>
-                    <a href="">4' x 6'</a>
-                    <a href="">5' x 8'</a>
-                    <a href="">6' x 9'</a>
-                    <a href="">7' x 9'</a>
-                    <a href="">8' x 10'</a>
-                    <a href="">9' x 12'</a>
-                    <a href="">10' x 14'</a>
-                    <a href="">Runner</a>
-                    <h4>Trending Rugs</h4>
-                    <a href="">Washable Rugs</a>
-                    <a href="">Round Rugs</a>
-                    <a href="">Shag Rugs</a>
-                    <a href="">Wool Rugs</a>
-                    <a href="">Jute Rugs</a>
-                    <a href="">Cowhide Rugs</a>
-                    <a href="">Braided Rugs</a>
-                    <a href="">Handmade Rugs</a>
-                    <a href="">Vintage Rugs</a>
+                    <h4>Art</h4>
+                    <a href="">Framed Prints</a>
+                <a href="">Metal Art</a>
+                <a href="">Wood Wall Art</a>
+                <a href="">Canvas Art</a>
+                <a href="">Framed Canvas Art</a>
+                <a href="">Large Canvas Art</a>
+                <a href="">Abstract Art</a>
+                <a href="">Geometric Art</a>
+                <a href="">Landscape Art</a>
+                  
+                <h4>Decorative Accessories</h4>
+                <a href="">Accent Pieces</a>
+                <a href="">Vases</a>
+                <a href="">Room Dividers</a>
+                <a href="">Photo Frames & Albums</a>
+                <a href="">Planters</a>
+                <a href="">Faux Plants</a>
+                <a href="">Wall Decor</a>
 
                 </div>
                 <div>
-                    <h4>Area Rugs By Color</h4>
-                    <a href="">Grey</a>
-                    <a href="">Blue</a>
-                    <a href="">Ivory</a>
-                    <a href="">White</a>
-                    <a href="">Black</a>
-                    <a href="">Red</a>
-                    <a href="">Brown</a>
-                    <a href="">Orange</a>
-                    <a href="">Pink</a>
-                    <h4>Area Rugs By Style</h4>
-                    <a href="">Modern & Contemporary</a>
-                    <a href="">Bohemian & Eclectic</a>
-                    <a href="">Persian</a>
-                    <a href="">Transitional</a>
-                    <a href="">Geometric</a>
-                    <a href="">Abstract</a>
-                    <a href="">Solid</a>
-                    <a href="">Floral & Botanical</a>
-                    
+                <h4>Christmas</h4>
+                <a href="">Christmas Trees</a>
+                <a href="">Flocked Christmas Trees</a>
+                <a href="">Christmas Wreaths</a>
+                <a href="">Christmas Garland</a>
+                <a href="">Outdoor Christmas Decorations</a>
+                <a href="">Christmas Lights</a>
+                <a href="">Christmas Inflatables</a>
+                <a href="">Christmas Ornaments</a>
+                <a href="">Christmas Stockings</a> 
+                       
+                <h4>Window Treatments</h4>
+                <a href="">Curtains & Drapes</a>
+                <a href="">Blinds & Shades</a>
+                <a href="">Curtain Rods & Hardware</a>
+                <a href="">Sheer Curtains</a>
+                <a href="">Blackout Curtains</a>
+                <a href="">Kitchen Curtains</a>
+                <a href="">Valances</a>
                 </div>
                 <div>
                     
@@ -152,7 +189,7 @@ const navbar = () => {
                 </div>
             </div>
         </li>
-        <li class="dropdown">Decor
+        <li class="dropdown mirrorProducts" >Decor
             <div class="dropdown-content">
                 <div>
                     <h4>Mirrors</h4>
@@ -172,38 +209,23 @@ const navbar = () => {
                     <a href="">Photo Frames & Albums</a>
                     <a href="">Planters</a>
                     <a href="">Faux Plants</a>
-                    <a href="">Candles & Candle Holders</a>
                     <a href="">Wall Decor</a>
-                    <a href="">Decorative Shelves</a>
-                    <a href="">Clocks</a>
 
 
                 </div>
                 <div>
-                <h4>Art</h4>
-                <a href="">Framed Prints</a>
-                <a href="">Metal Art</a>
-                <a href="">Wood Wall Art</a>
-                <a href="">Canvas Art</a>
-                <a href="">Framed Canvas Art</a>
-                <a href="">Large Canvas Art</a>
-                <a href="">Abstract Art</a>
-                <a href="">Geometric Art</a>
-                <a href="">Landscape Art</a>
+              
+                <h4>Rugs</h4>
+                <a href="">3' x 5'</a>
+                <a href="">4' x 6'</a>
+                <a href="">5' x 8'</a>
+                <a href="">6' x 9'</a>
+                <a href="">7' x 9'</a>
+                <a href="">8' x 10'</a>
+                <a href="">9' x 12'</a>
+                <a href="">10' x 14'</a>
+                <a href="">Runner</a>
                
-
-                <h4>Christmas</h4>
-                <a href="">Christmas Trees</a>
-                <a href="">Flocked Christmas Trees</a>
-                <a href="">Christmas Wreaths</a>
-                <a href="">Christmas Garland</a>
-                <a href="">Outdoor Christmas Decorations</a>
-                <a href="">Christmas Lights</a>
-                <a href="">Christmas Inflatables</a>
-                <a href="">Christmas Ornaments</a>
-                <a href="">Christmas Stockings</a> 
-                </div>
-                <div>
                 <h4>Window Treatments</h4>
                 <a href="">Curtains & Drapes</a>
                 <a href="">Blinds & Shades</a>
@@ -212,7 +234,19 @@ const navbar = () => {
                 <a href="">Blackout Curtains</a>
                 <a href="">Kitchen Curtains</a>
                 <a href="">Valances</a>
-                <a href="">Stained Glass Panels</a>
+                </div>
+                <div>
+                <h4>Area Rugs By Style</h4>
+                <a href="">Modern & Contemporary</a>
+                <a href="">Bohemian & Eclectic</a>
+                <a href="">Persian</a>
+                <a href="">Transitional</a>
+                <a href="">Geometric</a>
+                <a href="">Abstract</a>
+                <a href="">Solid</a>
+                <a href="">Floral & Botanical</a>
+                <a href="">Pink</a>
+
                 <h4>Throw Pillows</h4>
                 <a href="">Decorative Pillows</a>
                 <a href="">Outdoor Pillows</a>
@@ -222,133 +256,14 @@ const navbar = () => {
                 <a href="">Wedge Pillows</a>
                 <a href="">Pillow Inserts</a>
 
+              
+                
+              
+
                 </div>
             </div>
         </li>
-        
-        <li class="dropdown">Bedding
-            <div class="dropdown-content">
-                <div>
-                <h4>Bedding Sets</h4>
-                <a href="">Comforters and Sets</a>
-                <a href="">Bed Sheet Sets</a>
-                <a href="">Quilts and Bedspreads</a>
-                <a href="">Duvet Cover and Sets</a>
-                <a href="">Bed-in-a-Bag</a>
-                <a href="">Daybed Cover Sets</a>
-                <h4>Bed Sheets and Pillowcases</h4>
-                <a href="">Bed Sheet Sets</a>
-                <a href="">Pillow Shams</a>
-                <a href="">Pillowcases</a>
-                <a href="">Fitted Bed Sheets</a>
-                <a href="">Pillow Protectors</a>
-                <a href="">Flat Bed Sheets</a>
-
-                  
-                </div>
-                <div>
-                <h4>Mattresses</h4>
-                <a href="">Twin Mattress</a>
-                <a href="">Twin XL Mattress</a>
-                <a href="">Full Mattress</a>
-                <a href="">Queen Mattress</a>
-                <a href="">King Mattress</a>
-                <a href="">California King Mattress</a>
-                <a href="">Air Mattress</a>
-                <a href="">Mattress in a Box</a>
-
-
-                <h4>Bedding Essentials</h4>
-                <a href="">Down Comforters and Duvet Inserts</a>
-                <a href="">Bed Pillows</a>
-                <a href="">Pillow Shams</a>
-                <a href="">Bed Skirts</a>
-                <a href="">Kids Bedding</a>
-                <a href="">Baby Bedding</a>
-                <a href="">Bed Canopies</a>
-
-                
-                </div>
-                <div>
-                
-                <h4>Mattress Pads and Toppers</h4>
-                <a href="">Mattress Toppers</a>
-                <a href="">Mattress Protectors</a>
-                <a href="">Mattress Pads</a>
-                
-                
-                <h4>Blankets</h4>
-                <a href="">Blankets and Throws</a>
-                <a href="">Heated Blankets</a>
-                <a href="">Weighted Blankets</a>
-                 
-                </div>
-            </div>
-        </li>
-        <li class="dropdown">Home Imporovement
-            <div class="dropdown-content">
-                <div>
-                <h4>Kitchen</h4>
-                <a href="">Ranges & Ovens</a>
-                <a href="">Refrigerators</a>
-                <a href="">Kitchen Carts & Islands</a>
-                <a href="">Kitchen Sinks</a>
-                <a href="">Kitchen Faucets</a>
-                <a href="">Kitchen Cabinets</a>
-                <a href="">Backsplash</a>
-                <h4>Bathroom</h4>
-                <a href="">Bathroom Vanities</a>
-                <a href="">Bathroom Vanity Mirrors</a>
-                <a href="">Bathroom Sinks</a>
-                <a href="">Bathroom Faucets</a>
-                <a href="">Bathroom Cabinets</a>
-                <a href="">Tubs</a>
-                <a href="">Showers</a>
-                <a href="">Toilets</a>
-
-                
-                
-               
-                </div>
-                <div>
-                <h4>Storage & Organization</h4>
-                <a href="">Outdoor Storage</a>
-                <a href="">Laundry Room</a>
-                <a href="">Garage Storage</a>
-                <a href="">Decorative Storage</a>
-                <a href="">Closet Organizers</a>
-                <a href="">Kitchen & Pantry</a>
-                <a href="">Cabinets</a> 
-                <a href="">Furniture Storage</a> 
-                <a href="">Safes</a>
-                <h4>Flooring & Wall</h4>
-                <a href="">Tile</a>
-                <a href="">Laminate Flooring</a>
-                <a href="">Vinyl Flooring</a>
-                <a href="">Hardwood Flooring</a>
-                <a href="">Wallpaper</a>
-                <a href="">Wall Tiles</a>
-                <a href="">Ceiling Tiles</a>
-
-               
-
-                </div>
-                <div>
-                <h4>Vacuums</h4>
-                <a href="">Cordless Vacuums</a>
-                <a href="">Robot Vacuums</a>
-                <a href="">Handheld Vacuums</a>
-                <a href="">Canister Vacuums</a>
-                <a href="">Upright Vacuums</a>
-                <h4>Home Essentials</h4>
-                <a href="">Heating & Cooling</a>
-                <a href="">Air Quality</a>
-                <a href="">Sewing Machines</a>
-                <a href="">Craft Machines</a>
-                </div>
-            </div>
-        </li>
-        <li class="dropdown">Kitchen
+        <li class="dropdown kitchenProducts" >Kitchen
         <div class="dropdown-content">
         <div>
         <h4>Kitchen</h4>
@@ -474,6 +389,129 @@ const navbar = () => {
         </div>
     </div>
         </li>
+        <li class="dropdown">Bedding
+            <div class="dropdown-content">
+                <div>
+                <h4>Bedding Sets</h4>
+                <a href="">Comforters and Sets</a>
+                <a href="">Bed Sheet Sets</a>
+                <a href="">Quilts and Bedspreads</a>
+                <a href="">Duvet Cover and Sets</a>
+                <a href="">Bed-in-a-Bag</a>
+                <a href="">Daybed Cover Sets</a>
+                <h4>Bed Sheets and Pillowcases</h4>
+                <a href="">Bed Sheet Sets</a>
+                <a href="">Pillow Shams</a>
+                <a href="">Pillowcases</a>
+                <a href="">Fitted Bed Sheets</a>
+                <a href="">Pillow Protectors</a>
+                <a href="">Flat Bed Sheets</a>
+
+                  
+                </div>
+                <div>
+                <h4>Mattresses</h4>
+                <a href="">Twin Mattress</a>
+                <a href="">Twin XL Mattress</a>
+                <a href="">Full Mattress</a>
+                <a href="">Queen Mattress</a>
+                <a href="">King Mattress</a>
+                <a href="">California King Mattress</a>
+                <a href="">Air Mattress</a>
+                <a href="">Mattress in a Box</a>
+
+
+                <h4>Bedding Essentials</h4>
+                <a href="">Down Comforters and Duvet Inserts</a>
+                <a href="">Bed Pillows</a>
+                <a href="">Pillow Shams</a>
+                <a href="">Bed Skirts</a>
+                <a href="">Kids Bedding</a>
+                <a href="">Baby Bedding</a>
+                <a href="">Bed Canopies</a>
+
+                
+                </div>
+                <div>
+                
+                <h4>Mattress Pads and Toppers</h4>
+                <a href="">Mattress Toppers</a>
+                <a href="">Mattress Protectors</a>
+                <a href="">Mattress Pads</a>
+                
+                
+                <h4>Blankets</h4>
+                <a href="">Blankets and Throws</a>
+                <a href="">Heated Blankets</a>
+                <a href="">Weighted Blankets</a>
+                 
+                </div>
+            </div>
+        </li>
+        <li class="dropdown">Home Imporovement
+            <div class="dropdown-content">
+                <div>
+                <h4>Kitchen</h4>
+                <a href="">Ranges & Ovens</a>
+                <a href="">Refrigerators</a>
+                <a href="">Kitchen Carts & Islands</a>
+                <a href="">Kitchen Sinks</a>
+                <a href="">Kitchen Faucets</a>
+                <a href="">Kitchen Cabinets</a>
+                <a href="">Backsplash</a>
+                <h4>Bathroom</h4>
+                <a href="">Bathroom Vanities</a>
+                <a href="">Bathroom Vanity Mirrors</a>
+                <a href="">Bathroom Sinks</a>
+                <a href="">Bathroom Faucets</a>
+                <a href="">Bathroom Cabinets</a>
+                <a href="">Tubs</a>
+                <a href="">Showers</a>
+                <a href="">Toilets</a>
+
+                
+                
+               
+                </div>
+                <div>
+                <h4>Storage & Organization</h4>
+                <a href="">Outdoor Storage</a>
+                <a href="">Laundry Room</a>
+                <a href="">Garage Storage</a>
+                <a href="">Decorative Storage</a>
+                <a href="">Closet Organizers</a>
+                <a href="">Kitchen & Pantry</a>
+                <a href="">Cabinets</a> 
+                <a href="">Furniture Storage</a> 
+                <a href="">Safes</a>
+                <h4>Flooring & Wall</h4>
+                <a href="">Tile</a>
+                <a href="">Laminate Flooring</a>
+                <a href="">Vinyl Flooring</a>
+                <a href="">Hardwood Flooring</a>
+                <a href="">Wallpaper</a>
+                <a href="">Wall Tiles</a>
+                <a href="">Ceiling Tiles</a>
+
+               
+
+                </div>
+                <div>
+                <h4>Vacuums</h4>
+                <a href="">Cordless Vacuums</a>
+                <a href="">Robot Vacuums</a>
+                <a href="">Handheld Vacuums</a>
+                <a href="">Canister Vacuums</a>
+                <a href="">Upright Vacuums</a>
+                <h4>Home Essentials</h4>
+                <a href="">Heating & Cooling</a>
+                <a href="">Air Quality</a>
+                <a href="">Sewing Machines</a>
+                <a href="">Craft Machines</a>
+                </div>
+            </div>
+        </li>
+     
         <li class="dropdown">lighting
         <div class="dropdown-content">
         <div>
