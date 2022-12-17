@@ -15,6 +15,8 @@ window.onload = () => {
 
   document.getElementById("footer").innerHTML = footer();
 
+  document.getElementById("dopayment").innerHTML=cardpayment();
+
   navEvents();
 };
 
@@ -28,6 +30,8 @@ let card_div=document.getElementById("craditcard");
 card_div.addEventListener("click",()=>{
 
    document.getElementById("dopayment").innerHTML=cardpayment();
+   
+   
 
 })
 
@@ -57,4 +61,6 @@ cod_div.addEventListener("click",()=>{
 
    document.getElementById("dopayment").innerHTML=codpayment();
 
-})
+});
+
+
