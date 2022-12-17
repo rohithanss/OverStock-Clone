@@ -12,6 +12,33 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/wishLish.css" />
 </head>
+<!-- <script>
+
+let details = localStorage.getItem("admin_details") || null;
+// token=localStorage.getItem("user_token")
+
+if (details == null) {
+  window.stop();
+  alert("Login to see this page");
+  window.location.href = "login.html";
+}
+else{
+let data = await fetch(Api, {
+  headers:{
+    token
+  }
+})
+data = await data.json()
+if(data.status==error){
+window.stop();
+  alert("Login to see this page");
+  window.location.href = "login.html";
+
+}
+
+
+
+</script> -->
 <body>
     <div id="navigations">
         
@@ -31,13 +58,13 @@
                 <h4>My Lists</h3>
             </div>
             <div>
-                <h4>Account Settings</h3>
-            </div>
-            <div>
                 <h4>Alerts & Communications</h3>
             </div>
             <div>
                 <h4>Help Center</h3>
+            </div>
+            <div id="logout">
+                <h4>Log Out</h3>
             </div>
         </div>
         <div id="orders">
