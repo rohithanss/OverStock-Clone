@@ -1,5 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+  #top{
+    margin-top: 30px;
+    margin-left: 158px;
+  }
+#top *{
+    color: rgb(85, 85, 85);
+    font-size: 16px;
+    margin-left: 25px;
+}
 #data_div{
-    width: 80%;
+    width: 75%;
     margin: auto;
     display: flex;
     margin-top: 3%;
@@ -28,6 +40,8 @@
 }
 .checked {
     color: orange;
+    margin:3% 1%;
+  
   }
 #btn2{
     position: absolute;
@@ -43,7 +57,7 @@
 }
 #details{
     margin: 0% 3%;
-    width: 35%;
+    width: 41%;
     font-size: 140%;
     color: rgb(73, 71, 71);
 }
@@ -51,18 +65,27 @@
     color: rgb(164, 162, 162);
     font-size: 12px;
 }
+#id{
+    margin: 25px;
+    color: rgb(97, 96, 96);
+    font-size: 14px;
+
+}
 #size{
     color: rgb(115, 114, 114);
     font-size: 14px;  
-    margin: 5% 0%;
+    margin: 8% 0%;
 }
 #size>*{
     border: 1px solid rgb(180, 178, 178);
     padding: 2%;
 
 }
-#price~span{
-    font-size: 16px;  
+#price~span,.gray1{
+    font-size: 16px; 
+}
+#price{
+    margin: 15px 0px;
 }
 #imgsee{
     display: flex;
@@ -71,4 +94,26 @@
 }
 #imgsee>*{
     margin: 2%;
+}
+.flex{
+    display: flex;
+    margin: 10px;
+}
+.gray1{
+    border: 1px solid rgb(180, 178, 178);
+   margin: 2%;
+   margin-top: 32px;
+    padding: 2% 7%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+#cart{
+    background-color: rgb(39,134,95);
+    color: white;
+    padding: 7px;
+ padding-right: 47px;
+ border-radius: 4px;
+    font-size: 15px;
+    margin: 7px 22px;
 }

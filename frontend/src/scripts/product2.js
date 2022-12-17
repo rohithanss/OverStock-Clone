@@ -16,7 +16,40 @@ document.getElementById("btn1").onclick = () => {
 document.getElementById("btn2").onclick = () => {
   plusDivs(1);
 };
+document.getElementById("cart").onclick =async () => {
+  let token = localStorage.getItem("user_token") || null;
+
+  if (token == null) {
+    window.stop();
+    alert("Login to see this page");
+    window.location.href = "login.html";
+  } else {
+    let data = await fetch(Api, { // api/user/myprofile    in return  status = success or status fail or error
+      headers: {
+        token,
+      },
+    });
+    data = await data.json();
+    if (data.status == "error"|| data.status == "fail") {
+      window.stop();
+      alert("Login to see this page");
+      window.location.href = "login.html"; //  alertMsg("please login")
+    }
+  }
+
+
+};
+
+
+const category=localStorage.getItem("category");
 const productsid = localStorage.getItem("product_id");
+
+document.getElementById("cat1").innerHTML=`${category}`;
+document.getElementById("id").innerHTML=`#ITEM ${productsid}`;
+document.getElementById("fav").onclick=()=>{
+ let x= document.getElementById("heart")
+  x.style.color="red";
+};
 
 const showDivs = async (n) => {
   try {
@@ -46,7 +79,7 @@ const showDivs = async (n) => {
       if (flag == true && i == r) {
         i++;
         let hstar = document.getElementById(`s${i}`);
-        hstar.className = "fa fa-star-half-full";
+        hstar.className = "fa-solid fa-heart";
       }
     }
 
@@ -68,7 +101,7 @@ const showDivs = async (n) => {
 
     let imgsee = document.getElementById("imgsee");
     imgsee.innerHTML = null;
-    for (let i = 0; i < x.length; i++) {
+    for (let i = 0; i < 5; i++) {
       let y = document.createElement("img");
       y.src = x[i];
       y.style.width = "17%";

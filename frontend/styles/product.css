@@ -4,24 +4,28 @@
   
   #between{
     display: flex;
-    margin-top: 100px;
+    margin-top: 50px;
     justify-content: space-evenly;
+}
+#option *{
+border: none;
 }
 #betleft{
     border: 1px solid rgb(194, 191, 191);
-    width: 25%;
-    /* margin: 20px; */
+    width: 22%;
+    margin-left: 30px;
     padding: 20px;
     cursor: pointer;
 }
 #betright{
-    width: 65%;
+    width: 76%;
 }
 #betright1{
 display: grid;
 grid-template-columns: repeat(3,1fr);
 gap: 21px;
 padding: 40px;
+padding-top: 0px;
 
 }
 .checked {
@@ -47,6 +51,7 @@ padding: 40px;
 }
 
 .singleProduct{
+    color: rgb(56, 55, 55);
     width: 100%;
     position: relative;
     cursor: pointer;
@@ -56,20 +61,19 @@ padding: 40px;
    flex-direction: column;
    border: 1px solid rgb(142, 140, 140);
 }
-.singleProduct>b,.singleProduct>p{
+.singleProduct>b,.singleProduct>p,.singleProduct>i,.singleProduct>div{
    padding: 13px;
     /* width: 67%; */
 }
+
 .singleProduct i{
-    z-index: 2;
+    /* z-index: 2; */
     top: 10px;
     right: 10px;
 }
 .imgPro{
     width: 100%;
 }
-
-
 
 #betleft *{
     display: flex;
@@ -80,7 +84,7 @@ padding: 40px;
 justify-content: flex-end;
 }
 #flexbottom{
-    
+    margin-top: 20px;
     display: flex;
 }
 #flexbottom>div{
@@ -91,12 +95,14 @@ justify-content: flex-end;
     padding: 4px 27px;
     margin: 8px;
 }
+#betright3>h3{
+margin-top: 50px;
+}
 .noborder{
     border: none;
     color: rgb(90, 90, 90);
 }
 #flexbottom p{
-
     font-size: 14px;
     color: rgb(90, 90, 90);
 }
@@ -104,16 +110,18 @@ justify-content: flex-end;
     margin: 14px;
 }
 #top{
-    margin: 20px;
+    margin: 30px;
 }
 .gray{
     color: rgb(95, 93, 93);
 }
 .small{
-    font-size: 13px;
+    font-size: 15px;
+    width: 70%;
 }
 .centre{
     margin: 25px;
+    margin-top: 80px;
 display: flex;
 justify-content: center;
 }
@@ -127,13 +135,22 @@ justify-content: center;
     width: 25%;
     padding: 1%;
 }
+#betright4>div>img{
+    margin: 4%;
+}
 #exp{
     margin: 30px;
     padding: 20px;
     font-size: 30px;
 }
-.fa-light{
+.fa-solid{
     position: absolute;
     top: 10%;
-    color
+    color: gray;
+    font-size: 20px;
+   
+}
+.div2{
+    display: flex;
+    justify-content: space-between;
 }
