@@ -21,70 +21,70 @@ function navEvents() {
   };
   document.querySelector(".furnitureProducts").onclick = () => {
     localStorage.setItem("product_page", "bed");
-    // window.location.href = "product.html";
+    window.location.href = "product.html";
   };
   document.querySelectorAll(".furnitureProducts h4").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "bed");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
 
   document.querySelectorAll(".furnitureProducts a").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "bed");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
   document.querySelector(".artProducts").onclick = () => {
     localStorage.setItem("product_page", "art");
-    // window.location.href = "product.html";
+    window.location.href = "product.html";
   };
   document.querySelectorAll(".artProducts h4").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "art");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
 
   document.querySelectorAll(".artProducts a").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "art");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
   document.querySelector(".kitchenProducts").onclick = () => {
     localStorage.setItem("product_page", "refrigerator");
-    // window.location.href = "product.html";
+    window.location.href = "product.html";
   };
   document.querySelectorAll(".kitchenProducts h4").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "refrigerator");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
 
   document.querySelectorAll(".kitchenProducts a").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "refrigerator");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
   document.querySelector(".mirrorProducts").onclick = () => {
     localStorage.setItem("product_page", "mirror");
-    // window.location.href = "product.html";
+    window.location.href = "product.html";
   };
   document.querySelectorAll(".mirrorProducts h4").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "mirror");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
 
   document.querySelectorAll(".mirrorProducts a").forEach((el) => {
     el.onclick = () => {
       localStorage.setItem("product_page", "mirror");
-      // window.location.href = "product.html";
+      window.location.href = "product.html";
     };
   });
 }

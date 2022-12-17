@@ -5,13 +5,12 @@ import { alertMsg } from "./alertMsg.js";
 
 const token = localStorage.getItem("user_token");
 
-window.onload = () => {
-  document.getElementById("navigations").innerHTML = navbar();
+document.getElementById("navigations").innerHTML = navbar();
 
-  document.getElementById("footer").innerHTML = footer();
+document.getElementById("footer").innerHTML = footer();
 
-  navEvents();
-};
+navEvents();
+
 const api = `https://kars-stock.onrender.com`;
 
 const post = async () => {
@@ -98,7 +97,7 @@ const append = async (data) => {
     saveleter.innerText = "Save For Later";
     saveleter.style.cursor = "pointer";
     saveleter.addEventListener("click", () => {
-      saveleteritam(el._id,ele._id);
+      saveleteritam(el._id, ele._id);
     });
 
     button_div.append(remove, saveleter);
@@ -140,7 +139,9 @@ const append = async (data) => {
       let checkoutbutton = document.createElement("button");
       checkoutbutton.id = "checkoutbutton";
       checkoutbutton.innerText = "Check Out";
-
+      checkoutbutton.onclick = () => {
+        window.location.href = "payment.html";
+      };
       checkoutbutton_div.append(checkoutbutton);
 
       maindiv.append(itamdiv, cartline, totaldiv, checkoutbutton_div);
@@ -179,10 +180,8 @@ const removeitam = async (id) => {
   }
 };
 
-const saveleteritam = async (pid,cid) => {
+const saveleteritam = async (pid, cid) => {
   try {
-
-    
     let res = await fetch(`${api}/wishlist/add/${pid}`, {
       method: "POST",
       headers: {
@@ -195,4 +194,3 @@ const saveleteritam = async (pid,cid) => {
     console.log(err);
   }
 };
-

@@ -3,19 +3,17 @@ import footer from "../components/footer.js";
 import { navEvents } from "../components/navevent.js";
 import { alertMsg } from "./alertMsg.js";
 
-window.onload = () => {
-  document.getElementById("navigations").innerHTML = navbar();
+document.getElementById("navigations").innerHTML = navbar();
 
-  document.getElementById("footer").innerHTML = footer();
+document.getElementById("footer").innerHTML = footer();
 
-  navEvents();
-};
+navEvents();
 
 let container = document.getElementById("orders");
 
 let url = "https://kars-stock.onrender.com";
 // let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
-let key=localStorage.getItem("user_token")
+let key = localStorage.getItem("user_token");
 // import { alertMsg } from "./alertMsg.js";
 
 // let res = {msg:"hi ", status: "success/fail/error"};
@@ -266,10 +264,7 @@ if (Page == "Mylist") {
 } else {
   data();
 }
-document.getElementById("logout").addEventListener("click",()=>{
+document.getElementById("logout").addEventListener("click", () => {
   localStorage.removeItem("user_token");
   window.location.href = "login.html";
-  
-
-
-})
+});

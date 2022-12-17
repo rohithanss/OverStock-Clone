@@ -1,206 +1,158 @@
-body{
-    margin: 0px;
-    padding: 0px;
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
-#mheading{
-    margin-left:13% ;
-    margin-top: 3%;
+section {
+  display: flex;
 }
-#sheading{
-    margin-left:13% ;
-    margin-top: 5%;
+section > div:first-child {
+  width: 60%;
 }
-
-#maincard{
-    
-    border: 1px solid gray;
-    width: 49%;
-    margin-left: 13%;
-    display: flex;
-    justify-content: space-between;
-    
-    
+section > div:last-child {
+  width: 35%;
 }
-#dopayment{
-    /* border: 1px solid red; */
-    margin-right: 30px;
+#mheading {
+  margin-left: 13%;
+  margin-top: 3%;
+}
+#sheading {
+  margin-left: 13%;
+  margin-top: 5%;
 }
 
-#paymethod{
-    width: 40%;
-    background-color: rgb(243,244,245);
+#maincard {
+  border: 1px solid gray;
+  width: 70%;
+  /* margin-left: 13%;
+   */
+  margin: 30px auto 50px;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: space-between;
 }
-.paymentname{
-    display: flex;
-    flex-direction: column;
-    
-    margin-left: 10px;
-}
-.paymentname>:nth-child(2){
-   margin-top: 0px;
-   color: #6e7883;
-}
-#craditcard{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    
+#dopayment {
+  /* border: 1px solid red; */
+  /* margin-right: 30px; */
+  padding: 10px 20px;
 }
 
-#upi{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    
+#paymethod {
+  width: 50%;
+  padding: 0 20px;
+  background-color: rgb(243, 244, 245);
 }
-#ibanking{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    
+.paymentname {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-left: 10px;
 }
-#cod{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
+.paymentname > :nth-child(2) {
+  margin-top: 0px;
+  color: #6e7883;
+}
+#craditcard {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
+#upi {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+#ibanking {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+#cod {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+/* 
 #footer{
     margin-top: 500px;
+} */
+
+#carditcarddetail > :nth-child(1) {
+  margin: 15px 0;
+}
+#carditcarddetail > :nth-child(3) > input {
+  width: 100%;
+  padding: 0 10px;
+  margin: 15px 0;
+}
+#carditcarddetail > :nth-child(4) input {
+  padding: 0 10px;
+  margin: 10px 0;
 }
 
-
-#carditcarddetail>:nth-child(1){
-
-    margin-top: 25px;
-
-}
-#carditcarddetail>:nth-child(3)>input{
-    width: 100%;
-    margin-top: 30px;
-    
-
-}
-#carditcarddetail>:nth-child(4){
-    margin-top: 20px;
-    
+.carddetail {
+  height: 40px;
 }
 
-.carddetail{
-    height: 40px;
+#paybutton {
+  width: 100%;
+  height: 40px;
+  color: white;
+  background-color: rgb(232, 0, 113);
+  border: none;
+  margin-top: 15px;
 }
 
-#paybutton{
-    width: 100%;
-    height: 40px;
-    color: white;
-    background-color: rgb(232,0,113);
-    border: none;
-    margin-top: 15px;
+#savedetail {
+  margin-top: 15px;
 }
 
-#savedetail{
-    margin-top: 15px;
+#upidetail > :nth-child(1) {
+  margin-top: 25px;
+}
+#upidetail > :nth-child(3) > input {
+  width: 100%;
+  margin-top: 30px;
+}
+#upidetail > :nth-child(4) {
+  margin-top: 20px;
 }
 
-
-
-
-
-
-#upidetail>:nth-child(1){
-
-    margin-top: 25px;
-
-}
-#upidetail>:nth-child(3)>input{
-    width: 100%;
-    margin-top: 30px;
-    
-
-}
-#upidetail>:nth-child(4){
-    margin-top: 20px;
-    
+.upidetail {
+  height: 40px;
 }
 
-.upidetail{
-    height: 40px;
+#savedetail {
+  margin-top: 15px;
 }
 
-
-
-#savedetail{
-    margin-top: 15px;
+#netbdetail > :nth-child(1) {
+  margin-top: 25px;
+}
+#netbdetail > :nth-child(3) > input {
+  width: 100%;
+  margin-top: 30px;
+}
+#netbdetail > :nth-child(4) {
+  margin-top: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-#netbdetail>:nth-child(1){
-
-    margin-top: 25px;
-
-}
-#netbdetail>:nth-child(3)>input{
-    width: 100%;
-    margin-top: 30px;
-    
-
-}
-#netbdetail>:nth-child(4){
-    margin-top: 20px;
-    
+.netdetail {
+  height: 40px;
 }
 
-.netdetail{
-    height: 40px;
+#savedetail {
+  margin-top: 15px;
 }
 
-
-
-#savedetail{
-    margin-top: 15px;
+.bankname {
+  display: flex;
+  justify-content: space-between;
 }
 
-
-.bankname{
-    display: flex;
-    justify-content: space-between;
+#coddetail > :nth-child(1) {
+  margin-top: 25px;
 }
-
-
-
-
-
-
-#coddetail>:nth-child(1){
-
-    margin-top: 25px;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,21 +4,18 @@ import { navEvents } from "../components/navevent.js";
 import { alertMsg } from "./alertMsg.js";
 import { check } from "./check.js";
 
+document.getElementById("navigations").innerHTML = navbar();
 
-window.onload = () => {
-  document.getElementById("navigations").innerHTML = navbar();
+document.getElementById("footer").innerHTML = footer();
 
-  document.getElementById("footer").innerHTML = footer();
+navEvents();
 
-  navEvents();
-};
 document.getElementById("btn1").onclick = () => {
   plusDivs(-1);
 };
 document.getElementById("btn2").onclick = () => {
   plusDivs(1);
 };
-
 
 const category = localStorage.getItem("category");
 const productsid = localStorage.getItem("product_id");
@@ -31,7 +28,7 @@ const showDivs = async (n) => {
     let result = await fetch(
       `https://kars-stock.onrender.com/products/${productsid}`
     );
-    
+
     let data = await result.json();
 
     let el = data.product;
@@ -62,10 +59,10 @@ const showDivs = async (n) => {
     price.innerHTML = `Sale Starts at INR ${el.price}`;
     price.style.color = "red";
 
-   let icon= document.getElementById("fav")
+    let icon = document.getElementById("fav");
 
-    let work="wishlist";
-    check(productsid,work,icon);
+    let work = "wishlist";
+    check(productsid, work, icon);
 
     let x = el.otherImages;
 
@@ -119,7 +116,6 @@ const showDivs = async (n) => {
         }
       }
       console.log(document.getElementById("addtocart"));
-
     };
   } catch (err) {
     console.log(err);
@@ -127,16 +123,13 @@ const showDivs = async (n) => {
   }
 };
 
-
-
-let icon=document.getElementById("addtocart");
+let icon = document.getElementById("addtocart");
 icon.onclick = async () => {
   console.log("click");
-  
-  let token = localStorage.getItem("user_token") || null;
-  let work="cart";
-  check(productsid,work,icon);
 
+  let token = localStorage.getItem("user_token") || null;
+  let work = "cart";
+  check(productsid, work, icon);
 
   if (token == null) {
     window.stop();
@@ -144,12 +137,12 @@ icon.onclick = async () => {
     window.location.href = "login.html";
   } else {
     let quantity = document.getElementById("quantity").value;
-    try{
+    try {
       let Api = `https://kars-stock.onrender.com/cart/add/${productsid}?quantity=${quantity}`;
       let data = await fetch(Api, {
         // api/user/myprofile    in return  status = success or status fail or error
         method: "POST",
-  
+
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -161,15 +154,13 @@ icon.onclick = async () => {
         alert("Login to see this page");
         window.location.href = "login.html"; //  alertMsg("please login")
       }
-  
-    }catch(err){
-      alertMsg("error occured try agian or login agian", "fail")
+    } catch (err) {
+      alertMsg("error occured try agian or login agian", "fail");
     }
-   
   }
 };
-let work="cart";
-    check(productsid,work,icon);
+let work = "cart";
+check(productsid, work, icon);
 
 var slideIndex = 1;
 showDivs(slideIndex);

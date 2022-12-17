@@ -16,6 +16,33 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <title>cart</title>
+    <script>
+      let token = localStorage.getItem("user_token");
+
+      if (token == null) {
+        window.stop();
+        alert("Login to see this page");
+        window.location.href = "login.html";
+      } else {
+        let main = async () => {
+          let res = await fetch(
+            `https://kars-stock.onrender.com/user/myprofile`,
+            {
+              headers: {
+                Authorization: `Authorization ${token}`,
+              },
+            }
+          );
+          let data = await res.json();
+          if (data.status == "fail" || data.status == "error") {
+            window.stop();
+            alert("Login to see this page");
+            window.location.href = "login.html";
+          }
+        };
+        main();
+      }
+    </script>
   </head>
   <body>
     <div id="navigations"></div>
