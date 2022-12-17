@@ -14,9 +14,8 @@ window.onload = () => {
 let container = document.getElementById("orders");
 
 let url = "https://kars-stock.onrender.com";
-let key =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
-// let key=localStorage.getItem("user_token")
+// let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
+let key=localStorage.getItem("user_token")
 // import { alertMsg } from "./alertMsg.js";
 
 // let res = {msg:"hi ", status: "success/fail/error"};
@@ -47,7 +46,7 @@ let append = (data) => {
     let div = document.createElement("div");
     div.className = "minicontainer";
 
-    let name = document.createElement("p");
+    let name = document.createElement("h4");
     name.innerText = el.productId.title;
     name.className = "nameofOrde";
 
@@ -59,7 +58,13 @@ let append = (data) => {
     status.className = "statusofOrder";
 
     let orderDate = document.createElement("p");
-    orderDate.innerText = "Orderd On : " + el.createdAt;
+
+    let DAndT = el.createdAt;
+    let DataOF_DandT = DAndT.split("T");
+    let A = DataOF_DandT[0].split("-");
+    let Date = A[2] + "/" + A[1] + "/" + A[0];
+
+    orderDate.innerText = "Orderd On : " + Date;
     orderDate.className = "orderDate";
 
     let div3 = document.createElement("div");
@@ -70,15 +75,15 @@ let append = (data) => {
 
     let status_btn = document.createElement("button");
     let btnStatus;
-    if (el.orderStatus == "delivered") {
+    if (el.orderStatus == "delivered" || el.orderStatus == "Delivered") {
       btnStatus = "Return";
-    } else if (el.orderStatus == "shipped") {
+    } else if (el.orderStatus == "shipped" || el.orderStatus == "Shipped") {
       btnStatus = "Cancel";
-    } else if (el.orderStatus == "cancelled") {
+    } else if (el.orderStatus == "cancelled" || el.orderStatus == "Cancelled") {
       btnStatus = "cancelled";
-    } else if (el.orderStatus == "Placed") {
+    } else if (el.orderStatus == "Placed" || el.orderStatus == "placed") {
       btnStatus = "Cancel";
-    } else if (el.orderStatus == "shipped") {
+    } else if (el.orderStatus == "shipped" || el.orderStatus == "Shipped") {
       btnStatus = "Cancel";
     } else {
       btnStatus = "Cancel";
@@ -261,3 +266,10 @@ if (Page == "Mylist") {
 } else {
   data();
 }
+document.getElementById("logout").addEventListener("click",()=>{
+  localStorage.removeItem("user_token");
+  window.location.href = "login.html";
+  
+
+
+})
