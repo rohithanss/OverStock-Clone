@@ -18,11 +18,11 @@ body {
   color: black;
 }
 
-#navigations ul{
+#navigations ul {
   display: flex;
 }
 
-#navigations li{
+#navigations li {
   list-style: none;
   cursor: pointer;
 }
@@ -97,7 +97,9 @@ body {
   gap: 15px;
   align-items: center;
 }
-
+.cart_btn {
+  position: relative;
+}
 #navigations ul i {
   font-size: 25px;
 }
@@ -187,8 +189,22 @@ body {
 #navigations li.dropdown:last-child .dropdown-content,
 #navigations li.dropdown:nth-child(10) .dropdown-content,
 #navigations li.dropdown:nth-child(9) .dropdown-content,
-#navigations li.dropdown:nth-child(8) .dropdown-content
- {
+#navigations li.dropdown:nth-child(8) .dropdown-content {
   right: 0;
   left: auto;
+}
+
+.cartCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 4%;
+  left: 55%;
+  font-size: 12px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  color: white;
+  font-weight: 600;
 }
