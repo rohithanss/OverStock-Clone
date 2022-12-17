@@ -33,7 +33,7 @@
     display: block;
     width: 100px;
     margin-right: 20px;
-    background-color: red;
+    background-color: rgb(253, 64, 64);
     border: 0px;
     border-radius: 3px;
     padding: 5px;
@@ -43,7 +43,7 @@
     width: 100px;
     margin-right: 20px;
     margin-top: 10px;
-    background-color: green;
+    background-color: rgb(44, 163, 44);
     border: 0px;
     border-radius: 3px;
     padding: 5px;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,36 +13,39 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/wishLish.css" />
 </head>
-<!-- <script>
+<script>
 
-let details = localStorage.getItem("admin_details") || null;
-// token=localStorage.getItem("user_token")
+    let token = localStorage.getItem("user_token")
 
-if (details == null) {
-  window.stop();
-  alert("Login to see this page");
-  window.location.href = "login.html";
-}
-else{
-let data = await fetch(Api, {
-  headers:{
-    token
-  }
-})
-data = await data.json()
-if(data.status==error){
-window.stop();
-  alert("Login to see this page");
-  window.location.href = "login.html";
+    if (token == null) {
+        window.stop();
+        alert("Login to see this page");
+        window.location.href = "login.html";
+    }
+    else {
 
-}
+        let main = async () => {
+            let res = await fetch(`https://kars-stock.onrender.com/user/myprofil`, {
+                headers: {
+                    Authorization: `Authorization ${token}`,
+                },
+            });
+            let data = await res.json()
+            if (data.status == "fail") {
+                window.stop();
+                alert("Login to see this page");
+                window.location.href = "login.html";
 
+            }
+        }
+        main()
+    }
 
+</script>
 
-</script> -->
 <body>
     <div id="navigations">
-        
+
     </div>
     <div id="bodydiv">
         <div id="listoption">
@@ -70,8 +74,6 @@ window.stop();
         <div id="orders">
 
         </div>
-        
-        
 
 
 
@@ -80,7 +82,9 @@ window.stop();
 
 
 
-        </div>
+
+
+    </div>
 
     </div>
 
@@ -89,6 +93,6 @@ window.stop();
 
 
 </body>
+
 </html>
 <script type="module" src="./src/scripts/order.js"></script>
-

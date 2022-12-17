@@ -40,3 +40,11 @@ document.getElementById("OrdersandReturns").addEventListener("click", () => {
 });
 
 
+document.getElementById("logout").addEventListener("click",()=>{
+  localStorage.removeItem("user_token");
+  window.location.href = "login.html";
+
+
+})
+
+
