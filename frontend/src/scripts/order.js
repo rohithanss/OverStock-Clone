@@ -15,7 +15,7 @@ let container = document.getElementById("orders");
 
 let url = "https://kars-stock.onrender.com";
 let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
-let key1=localStorage.getItem("user_token")
+// let key=localStorage.getItem("user_token")
 // import { alertMsg } from "./alertMsg.js";
 
 // let res = {msg:"hi ", status: "success/fail/error"};
@@ -38,7 +38,7 @@ let data = async () => {
     console.log("fail while featching");
   }
 };
-data();
+
 
 console.log("");
 
@@ -49,15 +49,18 @@ let append = (data) => {
 
     let name = document.createElement("p");
     name.innerText = el.productId.title;
+    name.className="nameofOrde"
 
     let image = document.createElement("img");
     image.src = el.productId.image;
     image.className = "image_order";
     let status = document.createElement("p");
     status.innerText = `Status : ${el.orderStatus}`;
+    status.className="statusofOrder"
 
     let orderDate = document.createElement("p");
     orderDate.innerText = "Orderd On : " + el.createdAt;
+    orderDate.className="orderDate"
 
     let div3 = document.createElement("div");
     div3.className = "minicontainer3";
@@ -153,6 +156,7 @@ document.getElementById("Overview").addEventListener("click", () => {
   window.location = "./Overview.html";
 });
 document.getElementById("OrdersandReturns").addEventListener("click", () => {
+  localStorage.setItem("page_name","Order")
   location.reload()
 });
 // document.getElementById("MyReviews").addEventListener("click", () => {
@@ -260,3 +264,15 @@ try{
 
 
 };
+
+
+
+
+
+let Page=localStorage.getItem("page_name")
+
+if(Page=="Mylist"){
+  getData();
+}else{
+  data();
+}

@@ -3,13 +3,19 @@ import footer from "../components/footer.js";
 import { navEvents } from "../components/navevent.js";
 import { alertMsg } from "./alertMsg.js";
 
-window.onload = () => {
-  document.getElementById("navigations").innerHTML = navbar();
+// window.onload = () => {
+//   document.getElementById("navigations").innerHTML = navbar();
+
+//   document.getElementById("footer").innerHTML = footer();
+
+//   navEvents();
+// };
+
+document.getElementById("navigations").innerHTML = navbar();
 
   document.getElementById("footer").innerHTML = footer();
 
   navEvents();
-};
 
 // import { alertMsg } from "./alertMsg.js";
 
@@ -25,8 +31,12 @@ document.getElementById("MyReviews").addEventListener("click", () => {
 });
 
 document.getElementById("MyLists").addEventListener("click", () => {
-  window.location = "";
-});
-document.getElementById("OrdersandReturns").addEventListener("click", () => {
+  localStorage.setItem("page_name","Mylist")
   window.location = "./order.html";
 });
+document.getElementById("OrdersandReturns").addEventListener("click", () => {
+  localStorage.setItem("page_name","")
+  window.location = "./order.html";
+});
+
+

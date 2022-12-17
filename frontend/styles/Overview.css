@@ -1,8 +1,4 @@
-div {
-  /* border: 1px solid red; */
-  /* height: 20px; */
-  /* height: 200px; */
-}
+
 #bodydiv {
   display: flex;
   width: 95%;
@@ -10,15 +6,17 @@ div {
   /* border: 1px solid green; */
   /* margin-top: 40px; */
   margin-left: 5%;
+  margin-top: 20px;
 }
 #Dashboardinfo {
   margin-left: 1%;
   /* border: 1px solid red; */
+  margin-top: 5px;
   height: 1000px;
 }
 #listoption {
-  width: 30%;
-  height: 1500px;
+  width: 20%;
+  height: 1250px;
   margin-top: 10px;
   /* border: 1px solid red; */
   box-shadow: rgba(0, 0, 0, 0.12) 1px 0px 1px, rgba(0, 0, 0, 0.24) 0px 0px 0px;
@@ -39,6 +37,7 @@ div {
   margin-left: 20px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    align-items: center;
 }
 .DashboardDiv img {
   display: block;
@@ -54,9 +53,11 @@ div {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+  margin-top: 10px;
+  margin-left: 1px;
 }
 #Dashboardinfo {
-  width: 100%;
+  width: 75%;
 }
 #Dashboardinfo > h3 {
   margin-left: 20px;
@@ -69,10 +70,11 @@ div {
   /* height: 40px; */
   align-items: center;
   margin-left: 20px;
+  margin-top: 15px;
 }
 
 .seller-div {
-  margin-top: 20px;
+  margin-top: 15px;
   /* border: 1px solid red; */
   height: 300px;
   display: grid;
@@ -94,7 +96,7 @@ div {
 
 #Dashboardtopseler {
   margin-left: 20px;
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 #Overview {
@@ -103,4 +105,10 @@ div {
 
 #listoption {
   cursor: pointer;
+}
+.statusofOrder{
+  margin-top: 10px;
+}
+.orderDate{
+  margin-top: 10px;
 }
