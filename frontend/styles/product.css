@@ -143,9 +143,9 @@ justify-content: center;
     padding: 20px;
     font-size: 30px;
 }
-.fa-solid{
+#fa-solid{
     position: absolute;
-    top: 10%;
+    top: 1%;
     color: gray;
     font-size: 20px;
    

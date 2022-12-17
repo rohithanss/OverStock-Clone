@@ -2,6 +2,8 @@ import navbar from "../components/navbar.js";
 import footer from "../components/footer.js";
 import { navEvents } from "../components/navevent.js";
 import { alertMsg } from "./alertMsg.js";
+import { check } from "./check.js";
+
 
 window.onload = () => {
   document.getElementById("navigations").innerHTML = navbar();
@@ -20,8 +22,8 @@ const getProducts = async () => {
     let result = await fetch(
       `https://kars-stock.onrender.com/products?${category}`
     );
-
-    console.log(result);
+//limit=12&page=1
+    //console.log(result);
     let data = await result.json();
     appendProducts(data.products);
   } catch (err) {
@@ -34,20 +36,50 @@ const appendProducts = (data) => {
   let data_div = document.getElementById("betright1");
 
   data.forEach((el) => {
+    //console.log(el)
     let div = document.createElement("div");
-    div.onclick = () => {
-      localStorage.setItem("product_id", el._id);
-      window.location.href = "product2.html";
-    };
-
+  
     div.setAttribute("class", "singleProduct");
 
     let icon = document.createElement("i");
+   
     // icon.innerHTML=f4c7;
      icon.setAttribute("class","fa-solid fa-heart");
-    icon.onclick=function(){
-      // window.location.
-      icon.style.color="red";
+     icon.setAttribute("id","fa-solid");
+     let work="wishlist";
+     check(el._id,work,icon)
+    icon.onclick=async function(){
+      // let work="wishlist";
+      // check(el._id,work,icon)
+
+      let token = localStorage.getItem("user_token") || null;
+
+      if (token == null) {
+        window.stop();
+        alert("Login to add this to wishlist");
+        window.location.href = "login.html";
+      } else {
+        let productId=el._id;
+        let Api=`https://kars-stock.onrender.com/wishlist/add/${productId}`;
+        let data = await fetch(Api, { // api/user/myprofile    in return  status = success or status fail or error
+        method:'POST',
+      
+          headers: {
+            Authorization:`Bearer ${token}`,
+          },
+        });
+        data = await data.json();
+        if (data.status == "error"|| data.status == "fail") {
+          window.stop();
+          alert("Login to see this page");
+          window.location.href = "login.html"; //  alertMsg("please login")
+        }
+        else {
+          icon.style.color="red";
+          alertMsg("Added to Favourites successfully", "success");
+        }
+      }
+
 
     }
     let div2 = document.createElement("div");
@@ -63,6 +95,8 @@ image.className="imgPro";
     d.innerHTML ="  "+`<i class="fa fa-angle-down"></i>`+"  "+ "Details";
     d.onclick=()=>{
       
+
+
     }
     let price = document.createElement("b");
     price.innerHTML = `Sale Starts at INR ${el.price}`;
@@ -79,7 +113,16 @@ let x=document.createElement("span");
 x.className="fa fa-star checked";
 star.append(x)
 }
-div2.append(title,d)
+div2.append(title,d);
+star.onclick = () => {
+  localStorage.setItem("product_id", el._id);
+  window.location.href = "product2.html";
+};
+price.onclick = () => {
+  localStorage.setItem("product_id", el._id);
+  window.location.href = "product2.html";
+};
+
     div.append(icon,image, price,star, div2);
     data_div.append(div);
   });

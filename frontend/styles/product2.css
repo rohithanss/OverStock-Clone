@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    cursor:pointer;
   }
   #top{
     margin-top: 30px;
@@ -107,8 +108,9 @@
     width: 40%;
     display: flex;
     justify-content: space-between;
+    cursor:pointer;
 }
-#cart{
+#addtocart{
     background-color: rgb(39,134,95);
     color: white;
     padding: 7px;
@@ -116,4 +118,8 @@
  border-radius: 4px;
     font-size: 15px;
     margin: 7px 22px;
+    cursor:pointer;
+}
+#addtocart:hover{
+    background-color: rgb(32, 82, 61);
 }
