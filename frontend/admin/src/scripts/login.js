@@ -1,6 +1,6 @@
 import { alertMsg } from "./alertMsg.js";
 
-const api = "http://localhost:7010/admin/login";
+const api = "https://kars-stock.onrender.com/admin/login";
 
 const form = document.getElementById("admin_login_form");
 window.onload = () => {

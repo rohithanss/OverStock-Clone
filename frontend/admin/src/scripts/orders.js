@@ -3,7 +3,7 @@ import { orderDetail } from "../components/orderDetail.js";
 import { productCard } from "../components/productCard.js";
 import { alertMsg } from "./alertMsg.js";
 const admin_token = localStorage.getItem("admin_token");
-const api = "http://localhost:7010/admin/";
+const api = "https://kars-stock.onrender.com/admin/";
 
 var count = 1;
 var total_pages;
@@ -16,7 +16,7 @@ window.onload = async () => {
     setTimeout(() => {
       let selected_option = document.getElementById("orders");
       selected_option.setAttribute("class", "selected");
-    }, 125);
+    }, 200);
   } catch (err) {
     // console.log(err);
   }

@@ -1,4 +1,4 @@
-const api = "http://localhost:7010/admin/";
+const api = "https://kars-stock.onrender.com/admin/";
 const admin_token = localStorage.getItem("admin_token");
 
 async function orderDetail(order) {

@@ -14,7 +14,8 @@ window.onload = () => {
 let container = document.getElementById("orders");
 
 let url = "https://kars-stock.onrender.com";
-let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
+let key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2Mzk5ODU3MjEwYzU0MWYyNmNlMGIyZjciLCJpYXQiOjE2NzEwMTkwNTB9.FDA8NpDCWwVN0KuduzHEwQCiJ1Mk3VoSEmRwenskSkg";
 // let key=localStorage.getItem("user_token")
 // import { alertMsg } from "./alertMsg.js";
 
@@ -39,7 +40,6 @@ let data = async () => {
   }
 };
 
-
 console.log("");
 
 let append = (data) => {
@@ -49,18 +49,18 @@ let append = (data) => {
 
     let name = document.createElement("p");
     name.innerText = el.productId.title;
-    name.className="nameofOrde"
+    name.className = "nameofOrde";
 
     let image = document.createElement("img");
     image.src = el.productId.image;
     image.className = "image_order";
     let status = document.createElement("p");
     status.innerText = `Status : ${el.orderStatus}`;
-    status.className="statusofOrder"
+    status.className = "statusofOrder";
 
     let orderDate = document.createElement("p");
     orderDate.innerText = "Orderd On : " + el.createdAt;
-    orderDate.className="orderDate"
+    orderDate.className = "orderDate";
 
     let div3 = document.createElement("div");
     div3.className = "minicontainer3";
@@ -156,8 +156,8 @@ document.getElementById("Overview").addEventListener("click", () => {
   window.location = "./Overview.html";
 });
 document.getElementById("OrdersandReturns").addEventListener("click", () => {
-  localStorage.setItem("page_name","Order")
-  location.reload()
+  localStorage.setItem("page_name", "Order");
+  location.reload();
 });
 // document.getElementById("MyReviews").addEventListener("click", () => {
 //   window.location = "";
@@ -167,20 +167,16 @@ document.getElementById("MyLists").addEventListener("click", () => {
   getData();
 });
 
-
-
-
-document.getElementById("Overview").style.backgroundColor="white"
-
+document.getElementById("Overview").style.backgroundColor = "white";
 
 const getData = async () => {
+  document.getElementById("MyLists").style.backgroundColor =
+    "rgb(158, 112, 112)";
+  document.getElementById("OrdersandReturns").style.backgroundColor = "white";
+  document.getElementById("Overview").style.backgroundColor = "white";
 
-  document.getElementById("MyLists").style.backgroundColor="rgb(158, 112, 112)"
-  document.getElementById("OrdersandReturns").style.backgroundColor="white"
-  document.getElementById("Overview").style.backgroundColor="white"
-  
   try {
-   let  res = await fetch(`${url}/wishlist`, {
+    let res = await fetch(`${url}/wishlist`, {
       headers: {
         Authorization: `Authorization ${key}`,
       },
@@ -195,12 +191,10 @@ const getData = async () => {
   }
 };
 
-
 const appendData = (data) => {
-
-  container.innerHTML=null
+  container.innerHTML = null;
   let container1 = document.createElement("div");
-    container1.setAttribute("id","contentDiv")
+  container1.setAttribute("id", "contentDiv");
 
   data.forEach((el) => {
     let div = document.createElement("div");
@@ -235,44 +229,35 @@ const appendData = (data) => {
 
     div.append(image, nameDiv, minidiv);
     container1.append(div);
-    container.append(container1)
+    container.append(container1);
     // console.log(el.productId)
   });
 };
 
-let remove = async(id) => {
+let remove = async (id) => {
   console.log(id);
 
-try{
-  let res = await fetch(`${url}/wishlist/delete/${id}`, {
-    method:"DELETE",
-    headers: {
-      Authorization: `Authorization ${key}`,
-    },
-  });
-  let data =res.json()
-  console.log(data)
+  try {
+    let res = await fetch(`${url}/wishlist/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Authorization ${key}`,
+      },
+    });
+    let data = res.json();
+    console.log(data);
 
-  getData();
-
-
-
-}catch(err){
-  console.log(err)
-  console.log("error while removing element")
-}
-
-
+    getData();
+  } catch (err) {
+    console.log(err);
+    console.log("error while removing element");
+  }
 };
 
+let Page = localStorage.getItem("page_name");
 
-
-
-
-let Page=localStorage.getItem("page_name")
-
-if(Page=="Mylist"){
+if (Page == "Mylist") {
   getData();
-}else{
+} else {
   data();
 }

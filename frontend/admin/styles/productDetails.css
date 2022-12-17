@@ -1,0 +1,114 @@
+.container-add-product > button {
+  padding: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  /* color: white; */
+  border-radius: 5px;
+  border: 1px solid rgb(202, 202, 202);
+  background: none;
+  outline: none;
+}
+.container-add-product > button:hover {
+  background-color: rgb(240, 240, 240);
+}
+#promtBox {
+  width: 70vw;
+  /* height: 80vh; */
+  background-color: white;
+  z-index: 101;
+  padding: 30px;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-id {
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+  background-color: #f9fafb;
+  padding: 5px;
+}
+#closePromtBox {
+  cursor: pointer;
+}
+#product-form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  gap: 30px;
+}
+#product-form > div {
+  display: flex;
+  justify-content: space-between;
+}
+.product-inputBox {
+  padding: 10px;
+  border: 1px solid rgb(202, 202, 202);
+  width: 45%;
+  background-color: #f9fafb;
+  border-radius: 10px;
+}
+.product-inputBox > p {
+  font-weight: 500;
+}
+.product-inputBox > input,
+.product-inputBox > select {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-top: 8px;
+  font-weight: 500;
+  background: none;
+}
+.submit-product-form {
+  background: rgba(180, 92, 235);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 45%;
+  padding: 10px;
+  box-sizing: content-box;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.submit-product-form:hover {
+  box-shadow: rgba(180, 92, 235, 0.5) 0px 3px 8px;
+}
+
+@media screen and (max-width: 925px) {
+  #promtBox {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 760px) {
+  #promtBox {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 660px) {
+  #promtBox {
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+  }
+  #product-form {
+    align-items: center;
+  }
+  #product-form > div {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .product-inputBox {
+    width: 100%;
+  }
+  #product-form button {
+    width: 100%;
+  }
+}
