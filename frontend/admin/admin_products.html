@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/images/logo.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mars - Admin Products</title>
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/productDetails.css" />
+    <script>
+      let token = localStorage.getItem("admin_token") || null;
+      if (token == null) {
+        window.stop();
+        alert("Login to see this page");
+        window.location.href = "login.html";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="promtBox">
+        <div class="product-heading">
+          <h2>Product Id: <span class="product-id"> #per63</span></h2>
+          <h2>
+            <i id="closePromtBox" class="fa-solid fa-xmark"></i>
+          </h2>
+        </div>
+        <div id="product-form">
+          <div>
+            <div class="product-inputBox">
+              <p>Name</p>
+              <input
+                type="text"
+                name="product_name"
+                id="product_name"
+                placeholder="Product Name"
+              />
+            </div>
+            <div class="product-inputBox">
+              <p>Price</p>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                placeholder="Product Price"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="product-inputBox">
+              <p>Image Url</p>
+              <input
+                type="text"
+                name="image"
+                id="image"
+                placeholder="Product image url"
+              />
+            </div>
+            <div class="product-inputBox">
+              <p>Category</p>
+              <select name="product_category" id="product_category">
+                <option value="">Select Category</option>
+                <option value="refrigerators">Refrigerators</option>
+                <option value="Bed">Bed</option>
+                <option value="mirrors">Mirrors</option>
+                <option value="art">Art</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="product-inputBox">
+              <p>Stock</p>
+              <input type="number" name="stock" id="stock_quantity" />
+            </div>
+            <div class="product-inputBox">
+              <p>Ratings</p>
+              <input
+                type="number"
+                name="ratings"
+                id="ratings"
+                placeholder="Product image url"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="product-inputBox">
+              <p>Other Images</p>
+              <input
+                type="textarea"
+                name="otherImages"
+                id="otherImages"
+                placeholder="Enter Multiple Image URLs (URL,URL)"
+              />
+            </div>
+
+            <button class="submit-product-form">Add Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <nav id="nav">
+        <!-- Navbar is getting appended by Dashboard.js -->
+      </nav>
+      <div>
+        <header>
+          <!-- Header is getting appended by Dashboard.js -->
+        </header>
+        <section>
+          <div id="container">
+            <div class="container-heading">
+              <h3 class="products-product-page">Products</h3>
+              <a href="admin_categories.html"
+                ><h3 class="products-category-page">Categories</h3></a
+              >
+            </div>
+            <div class="container-nav">
+              <div>
+                <select name="filter-by-category" id="filter-by-category">
+                  <option value="">Filter by Category</option>
+                  <option value="refrigerators">Refrigerators</option>
+                  <option value="mirrors">Mirrors</option>
+                  <option value="art">Art</option>
+                  <option value="bed">Bed</option>
+                </select>
+                <select name="sort-by-stock" id="sort-by-stock">
+                  <option value="">Sort by Stock</option>
+                  <option value="hl">High-Low</option>
+                  <option value="lh">Low-High</option>
+                </select>
+              </div>
+              <div class="container-add-product">
+                <button>+ Add Product</button>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Product Id</th>
+                  <th>Image</th>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Inventory</th>
+                  <th>View Detail</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <div class="container-pagination">
+              <div>0 - 0 of 0 Products</div>
+              <div>
+                <span>0 of 0</span
+                ><span>
+                  <i class="fa-solid fa-arrow-left prevP"> </i>
+                  <i class="fa-solid fa-arrow-right nextP"> </i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/b15e709a55.js"
+  crossorigin="anonymous"
+></script>
+<script src="src/scripts/dashboard.js" type="module"></script>
+<script src="src/scripts/products.js" type="module"></script>

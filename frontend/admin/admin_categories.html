@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/images/logo.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mars - Admin Products</title>
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <style>
+      .container-add-product > button {
+        padding: 7px;
+        font-weight: 600;
+        cursor: pointer;
+        /* color: white; */
+        border-radius: 5px;
+        border: 1px solid rgb(202, 202, 202);
+        background: none;
+        outline: none;
+      }
+      .container-add-product > button:hover {
+        background-color: rgb(240, 240, 240);
+      }
+    </style>
+    <script>
+      let token = localStorage.getItem("admin_token") || null;
+      if (token == null) {
+        window.stop();
+        alert("Login to see this page");
+        window.location.href = "login.html";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <main>
+      <nav id="nav">
+        <!-- Navbar is getting appended by Dashboard.js -->
+      </nav>
+      <div>
+        <header>
+          <!-- Header is getting appended by Dashboard.js -->
+        </header>
+        <section>
+          <div id="container">
+            <div class="container-heading">
+              <a href="admin_products.html"
+                ><h3 class="products-product-page">Products</h3></a
+              >
+              <h3 class="products-category-page">Categories</h3>
+            </div>
+            <div class="container-nav">
+              <div>
+                <select name="sort-by-total-stock" id="sort-by-total-stock">
+                  <option value="">Sort by Stock</option>
+                  <option value="hl">High-Low</option>
+                  <option value="lh">Low-High</option>
+                </select>
+                <select
+                  name="sort-by-total-products"
+                  id="sort-by-total-products"
+                >
+                  <option value="">Sort by Total Products</option>
+                  <option value="hl">High-Low</option>
+                  <option value="lh">Low-High</option>
+                </select>
+              </div>
+              <div class="container-add-product">
+                <button>+ Add Category</button>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Serial No.</th>
+                  <th>Category Name</th>
+                  <th>Category Code</th>
+                  <th>Total Products</th>
+                  <th>Total Stock</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <div class="container-pagination">
+              <div>0 - 0 of 0 Categories</div>
+              <div>
+                <span>0 of 0</span
+                ><span>
+                  <i class="fa-solid fa-arrow-left prevP"> </i>
+                  <i class="fa-solid fa-arrow-right nextP"> </i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/b15e709a55.js"
+  crossorigin="anonymous"
+></script>
+<script src="src/scripts/dashboard.js" type="module"></script>
+<script src="src/scripts/categories.js" type="module"></script>

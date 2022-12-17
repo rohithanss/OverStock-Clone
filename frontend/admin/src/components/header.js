@@ -1,8 +1,9 @@
 import { letter_icon } from "../components/navbar.js";
 
 function header() {
+  /*html*/
   return `   <div id="logo_name"><i class="fa-solid fa-bars hamburger"></i>
-  <img src="/images/logo-white.png" alt="" />
+  <img src="https://i.ibb.co/BGP5CcH/KARS.png" alt="" />
   <h4>KARS Stock</h4>
   </div> <div id="searchBar">
     <i class="fa-solid fa-magnifying-glass"></i>

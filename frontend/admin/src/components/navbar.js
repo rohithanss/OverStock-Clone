@@ -1,5 +1,5 @@
 async function getProfile() {
-  let profile = await fetch("http://localhost:7010/admin/myprofile", {
+  let profile = await fetch("https://kars-stock.onrender.com/admin/myprofile", {
     headers: {
       authorization: `bearer ${localStorage.getItem("admin_token")}`,
     },
@@ -12,7 +12,7 @@ const { full_name } = await getProfile();
 let letter_icon = `${full_name.toUpperCase()[0]}`;
 function navbar() {
   return `        <div><div>
-<img src="/images/logo-white.png" alt="" />
+<img src="https://i.ibb.co/BGP5CcH/KARS.png" alt="" />
 <h4>KARS Stock</h4></div><i id="hide-nav" class="fa-solid fa-xmark"></i>
 </div>
 <div id="options">
