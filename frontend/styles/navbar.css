@@ -120,11 +120,12 @@ body {
 #navbarBottom {
   box-sizing: border-box;
   margin: auto;
+  width: 100%;
 }
 
 #navbarBottom ul {
   /* box-sizing: border-box; */
-  width: 90vw;
+  width: 90%;
   margin: auto;
   justify-content: space-between;
 }
