@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  color: #3c3c3c;
+  letter-spacing: 1px;
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  width: 20%;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  border-right: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  height: 100vh;
+}
+nav > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#hide-nav {
+  cursor: pointer;
+  font-size: 25px;
+  display: none;
+}
+
+nav > div:first-child > div:first-child,
+#logo_name {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+nav > div:first-child > div:first-child > img,
+#logo_name > img {
+  height: 80%;
+  border-radius: 5px;
+}
+
+#options {
+  margin: 15px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#options > p {
+  color: gray;
+  letter-spacing: normal;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  cursor: pointer;
+}
+#options > p:hover {
+  background-color: #f3f4f6;
+}
+#options > .selected,
+#options > .selected > i {
+  background-color: #f3f4f6;
+  color: rgb(180, 92, 235);
+}
+#options > p > i {
+  color: gray;
+  width: 25px;
+}
+#team_members > p {
+  font-weight: 600;
+  color: gray;
+}
+#team_members > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+#team_members > div > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.letter_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  color: white;
+  font-weight: 600;
+  background-color: rgb(180, 92, 235);
+  border-radius: 50%;
+}
+.letter_icon + p {
+  font-weight: 500;
+}
+#team_members > div > i {
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+#team_members > div > i:hover {
+  background-color: #f3f4f6;
+}
+
+#team_members > #profile_menu,
+#h_profile_menu {
+  display: none;
+  /* display: block; */
+  padding: 5px;
+  /* border: 1px solid gray; */
+  border-radius: 7px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transform: translateX(50px);
+  background-color: white;
+}
+#profile_menu > p,
+#h_profile_menu > p {
+  color: gray;
+  letter-spacing: normal;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#profile_menu > p:hover,
+#h_profile_menu > p:hover {
+  background-color: #f3f4f6;
+  color: rgb(180, 92, 235);
+}
+#h_profile_menu {
+  transform: translateX(-50px);
+}
