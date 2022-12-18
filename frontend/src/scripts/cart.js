@@ -145,6 +145,9 @@ const append = async (data) => {
       checkoutbutton_div.append(checkoutbutton);
 
       maindiv.append(itamdiv, cartline, totaldiv, checkoutbutton_div);
+
+      localStorage.setItem("total_itam",totalitam);
+      localStorage.setItem("your_total",yourtotal);
     };
     checkout();
   });
@@ -194,3 +197,6 @@ const saveleteritam = async (pid, cid) => {
     console.log(err);
   }
 };
+
+
+

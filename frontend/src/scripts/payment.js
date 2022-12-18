@@ -6,6 +6,7 @@ import cardpayment from "../components/cardpayment.js";
 import { upipayment } from "../components/upipayment.js";
 import { netbankingdetails } from "../components/netbankingdetail.js";
 import { codpayment } from "../components/codpayment.js";
+import {bagdetail} from "../components/bagdetails.js"
 
 const token = localStorage.getItem("user_token");
 const api = "https://kars-stock.onrender.com/";
@@ -15,6 +16,8 @@ document.getElementById("navigations").innerHTML = navbar();
 document.getElementById("footer").innerHTML = footer();
 
 document.getElementById("dopayment").innerHTML = cardpayment();
+
+
 
 navEvents();
 
@@ -72,3 +75,24 @@ document.getElementById("paybutton").onclick = async () => {
     console.log(err);
   }
 };
+
+
+ 
+
+document.getElementById("bagdetailbox").innerHTML=bagdetail();
+
+let totalitems=localStorage.getItem("total_itam");
+let totalprice=localStorage.getItem("your_total");
+
+let titam=document.getElementById("titam")
+titam.innerHTML= totalitems +" items";
+titam.style.color="rgb(163,170,177)";
+
+let useraddress=document.getElementById("useraddress");
+useraddress.innerText="plot no. b-90 jaipur";
+useraddress.style.color="rgb(163,170,177)"
+
+
+let tprice=document.getElementById("tprice")
+tprice.innerHTML= "INR "+totalprice;
+tprice.style.color="rgb(163,170,177)"

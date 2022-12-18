@@ -5,11 +5,11 @@ const cardpayment=()=>{
     </div>
     <hr>
     <div>
-        <input class="carddetail" id="cardnumberbox" type="number" placeholder="Card Number">
+        <input class="carddetail" id="cardnumberbox" maxlength="16" type="text" placeholder="Card Number" >
     </div>
     <div>
         <input class="carddetail" id="carddatebox" type="month" placeholder="MM/YY">
-        <input class="carddetail" id="cardcvvbox" type="number" placeholder="CVV">
+        <input class="carddetail" id="cardcvvbox" type="text" placeholder="CVV" maxlength="3">
     </div>
 
     <p id="savedetail"><input type="checkbox"> Save this card securely for future </p>
