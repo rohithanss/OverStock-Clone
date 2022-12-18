@@ -170,7 +170,7 @@ async function changeOrderStatus(e, order) {
 
 async function fetchOrders(page, status, sort) {
   let res;
-  let limit = 2;
+  let limit = 10;
   // console.log(page, status, sort);
   try {
     res = await fetch(

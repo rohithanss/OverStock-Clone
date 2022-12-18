@@ -11,7 +11,7 @@ async function orderDetail(order) {
   });
   res = await res.json();
   console.log();
-  let { email, full_name } = res;
+  let { email, full_name, mobile, address } = res;
   let letter_icon = full_name.toUpperCase()[0];
   return ` <div class="order-page">
   <span>Orders</span><i class="fa-solid fa-chevron-right"></i>
@@ -75,11 +75,11 @@ async function orderDetail(order) {
     </div>
     <div>
       <p>Mobile:</p>
-      <p>1234214124</p>
+      <p>${mobile ? mobile : "no mobile number"}</p>
     </div>
     <div>
-      <p>Payment:</p>
-      <p>Received</p>
+      <p>Address:</p>
+      <p>${address ? address : "no address"}</p>
     </div>
   </div>
 </div>`;

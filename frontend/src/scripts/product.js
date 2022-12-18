@@ -64,10 +64,10 @@ const getProducts = async () => {
   }
 };
 getProducts();
-const appendProducts = async(data) => {
+const appendProducts = async (data) => {
   let data_div = document.getElementById("betright1");
 
-  data.forEach(async(el) => {
+  data.forEach(async (el) => {
     //console.log(el)
     let div = document.createElement("div");
 
@@ -77,16 +77,18 @@ const appendProducts = async(data) => {
 
     // icon.innerHTML=f4c7;
     icon.setAttribute("class", "fa-solid fa-heart");
-
+    icon.style.color = "gray";
     icon.setAttribute("id", "fa-solid");
+    let resp = { p: false, wishlist: null };
     if (loggedIn) {
-   let {p,wishlistid}  =  await check(el._id, wishlist, icon);
-    console.log(wishlistid)
+      resp = await check(el._id, wishlist, icon);
+      // console.log(wishlistid);
     }
-    icon.onclick = async function () {
+    let { p, wishlistid } = resp;
+    icon.onclick = async function (e) {
       // let work="wishlist";
 
-      if (p!==true) {
+      if (p !== true) {
         if (token == null) {
           window.stop();
           alert("Login to add this to wishlist");
@@ -113,7 +115,6 @@ const appendProducts = async(data) => {
           }
         }
       } else {
-      
         let Api = `https://kars-stock.onrender.com/wishlist/delete/${wishlistid}`;
         let data = await fetch(Api, {
           // api/user/myprofile    in return  status = success or status fail or error
@@ -125,11 +126,10 @@ const appendProducts = async(data) => {
         });
         data = await data.json();
         if (data.status == "error" || data.status == "fail") {
-          window.stop();
-          alert("Login to delete this item");
-          window.location.href = "login.html"; //  alertMsg("please login")
+          alertMsg("error while removing item from wishlist", "error");
         } else {
-          icon.style.color = "none";
+          icon.style.color = "gray";
+
           alertMsg("Removed from Favourites successfully", "success");
         }
       }

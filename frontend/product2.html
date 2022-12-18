@@ -1,84 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/add05b7e25.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/product2.css">
-</head>
-<body>
-    <div id="navigations">     
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/add05b7e25.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/product2.css" />
+  </head>
+  <body>
+    <div id="navigations"></div>
+    <div id="top">
+      <span class="gray">Decor /</span>
+      <span class="gray">Utilities /</span>
+      <span class="gray">Art /</span>
+      <span class="gray">Home Improvement /</span>
+      <span class="gray" id="cat1"></span>
     </div>
-<div id="top">
-    <span class="gray">Decor  /</span>
-<span class="gray">Utilities  /</span>
-<span class="gray">Art /</span>
-<span class="gray">Home Improvement /</span>
-<span class="gray" id="cat1"></span>
-</div>
 
-<div id="data_div">
-
-    <div class="slider">
+    <div id="data_div">
+      <div class="slider">
         <button id="btn1">&#10094;</button>
-        
+
         <button id="btn2">&#10095;</button>
-        <img id="slide" src="" alt="">
+        <img id="slide" src="" alt="" />
 
         <button id="btn3">&#10094;</button>
-        
+
         <button id="btn4">&#10095;</button>
         <div id="imgsee"></div>
-       
       </div>
       <div id="details">
         <p id="title"></p>
-<div id="star">
-<span id="s1" class="fa fa-star"></span>
-<span id="s2" class="fa fa-star"></span>
-<span id="s3" class="fa fa-star"></span>
-<span id="s4" class="fa fa-star"></span>
-<span id="s5" class="fa fa-star"></span>
-<i class="fa-solid fa-angle-down gray"></i> 
-<span class="gray">165 Reviews</span>
-</div>
-<p id="price"></p>
-<span>Size(5): Choose Size</span>
-<div id="size">
-<span>53''x 95''</span>
-<span>53''x 95''</span>
-<span>53''x 95''</span>
-<span>53''x 95''</span>
-<span>53''x 95''</span>
+        <div id="star">
+          <span id="s1" class="fa fa-star"></span>
+          <span id="s2" class="fa fa-star"></span>
+          <span id="s3" class="fa fa-star"></span>
+          <span id="s4" class="fa fa-star"></span>
+          <span id="s5" class="fa fa-star"></span>
+          <i class="fa-solid fa-angle-down gray"></i>
+          <span class="gray">165 Reviews</span>
+        </div>
+        <p id="price"></p>
+        <span>Size(5): Choose Size</span>
+        <div id="size">
+          <span>53''x 95''</span>
+          <span>53''x 95''</span>
+          <span>53''x 95''</span>
+          <span>53''x 95''</span>
+          <span>53''x 95''</span>
+        </div>
+        <div class="flex">
+          <select id="quantity">
+            <option value="1">Quantity : 1</option>
+            <option value="2">Quantity : 2</option>
+            <option value="3">Quantity : 3</option>
+            <option value="4">Quantity : 4</option>
+            <option value="5">Quantity : 5</option>
+            <option value="6">Quantity : 6</option>
+            <option value="7">Quantity : 7</option>
+          </select>
+          <button id="addtocart">
+            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
 
-</div>
-<div class="flex">
-
-<select id="quantity">
-    <option  class="gray1" value="1">Quantity : 1 </p> <i class="fa-solid fa-angle-down gray"></i> </option>
-    <option value="2">Quantity : 2</option>
-    <option value="3">Quantity : 3</option>
-    <option value="4">Quantity : 4</option>
-    <option value="5">Quantity : 5</option>
-    <option value="6">Quantity : 6</option>
-    <option value="7">Quantity : 7</option>
-    
-  </select>
-<b id="addtocart"><i class="fa-solid fa-cart-plus"></i>  Add to Cart</b>
-</div>
-
-<div id="fav" class="gray1"> <i id="heart" class="fa-solid fa-heart"></i> <p> Favourites </p></div>
-<p id="id"></p>
+        <div id="fav" class="gray1">
+          <i id="heart" class="fa-solid fa-heart"></i>
+          <p>Favourites</p>
+        </div>
+        <p id="id"></p>
       </div>
+    </div>
 
-</div>
-
-<!-- <div id="bottom">
+    <!-- <div id="bottom">
 <h2>Questions & Answers</h2>
 
 <div>
@@ -97,8 +101,7 @@
 
 </div> -->
 
-    <div id="footer">    
-    </div> 
-</body>
+    <div id="footer"></div>
+  </body>
 </html>
 <script type="module" src="./src/scripts/product2.js"></script>

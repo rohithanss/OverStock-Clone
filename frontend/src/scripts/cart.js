@@ -88,8 +88,8 @@ const append = async (data) => {
 
     let remove = document.createElement("button");
     remove.innerText = "Remove";
-    remove.addEventListener("click", () => {
-      removeitam(ele._id);
+    remove.addEventListener("click", (e) => {
+      removeitam(ele._id, e.target);
     });
     remove.style.cursor = "pointer";
 
@@ -146,8 +146,8 @@ const append = async (data) => {
 
       maindiv.append(itamdiv, cartline, totaldiv, checkoutbutton_div);
 
-      localStorage.setItem("total_itam",totalitam);
-      localStorage.setItem("your_total",yourtotal);
+      localStorage.setItem("total_itam", totalitam);
+      localStorage.setItem("your_total", yourtotal);
     };
     checkout();
   });
@@ -169,7 +169,8 @@ async function updateProductQuantity(value, id) {
   }
 }
 
-const removeitam = async (id) => {
+const removeitam = async (id, btn) => {
+  btn.innerText = "removing...";
   try {
     let res = fetch(`${api}/cart/delete/${id}`, {
       method: "DELETE",
@@ -177,6 +178,10 @@ const removeitam = async (id) => {
         authorization: `Bearer ${token}`,
       },
     });
+    res = await (await res).json();
+    if (res.status == "success") {
+      alertMsg(res.msg, res.status);
+    }
     post();
   } catch (err) {
     console.log(err);
@@ -197,6 +202,3 @@ const saveleteritam = async (pid, cid) => {
     console.log(err);
   }
 };
-
-
-

@@ -1,125 +1,124 @@
 * {
-    box-sizing: border-box;
-    cursor:pointer;
-  }
-  #top{
-    margin-top: 30px;
-    margin-left: 158px;
-  }
-#top *{
-    color: rgb(85, 85, 85);
-    font-size: 16px;
-    margin-left: 25px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
-#data_div{
-    width: 75%;
-    margin: auto;
-    display: flex;
-    margin-top: 3%;
+#top {
+  margin-top: 30px;
+  margin-left: 158px;
 }
-.slider{
-    position: relative;
-	width: 40%;
+#top * {
+  color: rgb(85, 85, 85);
+  font-size: 16px;
+  margin-left: 25px;
 }
-#slide{
-    width: 100%;
+#data_div {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  margin-top: 3%;
+}
+.slider {
+  position: relative;
+  width: 40%;
+}
+#slide {
+  width: 100%;
+}
 
+#btn1 {
+  position: absolute;
+  bottom: 50%;
+  padding: 5% 2%;
 }
-
-#btn1{
-    position: absolute;
-	bottom: 50%;
-    padding: 5% 2%;
- 
-}
-#btn3{
-    position: absolute;
-	 bottom: 7%;
-    padding: 5% 2%; 
-    left: 0%;
- 
+#btn3 {
+  position: absolute;
+  bottom: 7%;
+  padding: 5% 2%;
+  left: 0%;
 }
 .checked {
-    color: orange;
-    margin:3% 1%;
-  
-  }
-#btn2{
-    position: absolute;
-	bottom: 50%;
-    padding: 5% 2%;
-    left:94%;
+  color: orange;
+  margin: 3% 1%;
 }
-#btn4{
-    position: absolute;
-	bottom: 7%;
-    padding: 5% 2%;
-    /* left:94%; */
+#btn2 {
+  position: absolute;
+  bottom: 50%;
+  padding: 5% 2%;
+  left: 94%;
 }
-#details{
-    margin: 0% 3%;
-    width: 41%;
-    font-size: 140%;
-    color: rgb(73, 71, 71);
+#btn4 {
+  position: absolute;
+  bottom: 7%;
+  padding: 5% 2%;
+  /* left:94%; */
 }
-.gray{
-    color: rgb(164, 162, 162);
-    font-size: 12px;
+#details {
+  margin: 0% 3%;
+  width: 41%;
+  font-size: 140%;
+  color: rgb(73, 71, 71);
 }
-#id{
-    margin: 25px;
-    color: rgb(97, 96, 96);
-    font-size: 14px;
-
+.gray {
+  color: rgb(164, 162, 162);
+  font-size: 12px;
 }
-#size{
-    color: rgb(115, 114, 114);
-    font-size: 14px;  
-    margin: 8% 0%;
+#id {
+  margin: 25px;
+  color: rgb(97, 96, 96);
+  font-size: 14px;
 }
-#size>*{
-    border: 1px solid rgb(180, 178, 178);
-    padding: 2%;
-
+#size {
+  color: rgb(115, 114, 114);
+  font-size: 14px;
+  margin: 8% 0%;
 }
-#price~span,.gray1{
-    font-size: 16px; 
+#size > * {
+  border: 1px solid rgb(180, 178, 178);
+  padding: 2%;
 }
-#price{
-    margin: 15px 0px;
+#price ~ span,
+.gray1 {
+  font-size: 16px;
 }
-#imgsee{
-    display: flex;
-    padding: 4%;
-    margin: 4%;
+#price {
+  margin: 15px 0px;
 }
-#imgsee>*{
-    margin: 2%;
+#imgsee {
+  display: flex;
+  padding: 4%;
+  margin: 4%;
 }
-.flex{
-    display: flex;
-    margin: 10px;
+#imgsee > * {
+  margin: 2%;
 }
-.gray1{
-    border: 1px solid rgb(180, 178, 178);
-   margin: 2%;
-   margin-top: 32px;
-    padding: 2% 7%;
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    cursor:pointer;
+.flex {
+  display: flex;
+  margin: 10px;
 }
-#addtocart{
-    background-color: rgb(39,134,95);
-    color: white;
-    padding: 7px;
- padding-right: 47px;
- border-radius: 4px;
-    font-size: 15px;
-    margin: 7px 22px;
-    cursor:pointer;
+.gray1 {
+  border: 1px solid rgb(180, 178, 178);
+  margin: 2%;
+  margin-top: 32px;
+  padding: 2% 7%;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
-#addtocart:hover{
-    background-color: rgb(32, 82, 61);
+#addtocart {
+  background-color: rgb(39, 134, 95);
+  color: white;
+  padding: 12px 10px;
+  /* padding-right: 47px; */
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 7px 22px;
+  cursor: pointer;
+}
+#addtocart:hover {
+  background-color: rgb(32, 82, 61);
+}
+#quantity {
+  padding: 0 10px;
+  height: auto;
 }
