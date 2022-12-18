@@ -5,7 +5,7 @@ const codpayment=()=>{
     </div>
     <hr>
     
-    <button id="paybutton">pay</button>
+    <button id="paybutton">Place order</button>
 
 </div>`
 }
