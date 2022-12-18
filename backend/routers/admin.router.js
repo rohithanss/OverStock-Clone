@@ -112,6 +112,8 @@ adminRouter.get("/customer/:userID", async (req, res) => {
     res.send({
       full_name: customer.name,
       email: customer.email,
+      mobile: customer.mobile,
+      address: customer.address,
       status: "success",
     });
   } catch (err) {

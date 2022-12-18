@@ -6,7 +6,6 @@ const productRouter = Router();
 
 productRouter.get("/", async (req, res) => {
   let query = req.query;
-  console.log(query);
   var products;
   let limit = req.query.limit || null;
   let skip = (req.query.page - 1) * limit;
