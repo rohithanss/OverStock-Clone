@@ -10,6 +10,8 @@ document.getElementById("footer").innerHTML = footer();
 
 navEvents();
 
+let token = localStorage.getItem("user_token") || null;
+
 document.getElementById("btn1").onclick = () => {
   plusDivs(-1);
 };
@@ -17,11 +19,67 @@ document.getElementById("btn2").onclick = () => {
   plusDivs(1);
 };
 
-const category = localStorage.getItem("category");
-const productsid = localStorage.getItem("product_id");
+var category = localStorage.getItem("category");
+var productsid = localStorage.getItem("product_id");
 
 document.getElementById("cat1").innerHTML = `${category}`;
 document.getElementById("id").innerHTML = `#ITEM ${productsid}`;
+var loggedIn;
+var cart;
+const windowOnload = async () => {
+  try {
+    if (token == null) {
+      loggedIn = false;
+    } else {
+      let res = await fetch("https://kars-stock.onrender.com/cart", {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
+      res = await res.json();
+      if (res.status == "success") {
+        loggedIn = true;
+        return res.data;
+      } else {
+        loggedIn = false;
+      }
+    }
+  } catch {
+    loggedIn = false;
+    console.log("error ");
+  }
+};
+
+cart = await windowOnload();
+console.log(cart);
+
+var wishlist;
+const windowOnload1 = async () => {
+  try {
+    if (token == null) {
+      loggedIn = false;
+    } else {
+      let res = await fetch("https://kars-stock.onrender.com/wishlist", {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
+      res = await res.json();
+      if (res.status == "success") {
+        loggedIn = true;
+        return res.data;
+      } else {
+        loggedIn = false;
+      }
+    }
+  } catch {
+    loggedIn = false;
+    console.log("error ");
+  }
+};
+wishlist = await windowOnload1();
+console.log(wishlist);
+
 
 const showDivs = async (n) => {
   try {
@@ -32,7 +90,7 @@ const showDivs = async (n) => {
     let data = await result.json();
 
     let el = data.product;
-    console.log(data);
+    //console.log(data);
     // let data_con = document.getElementById("details");
 
     let title = document.getElementById("title");
@@ -61,8 +119,7 @@ const showDivs = async (n) => {
 
     let icon = document.getElementById("fav");
 
-    let work = "wishlist";
-    check(productsid, work, icon);
+    check(productsid, wishlist, icon);
 
     let x = el.otherImages;
 
@@ -90,7 +147,6 @@ const showDivs = async (n) => {
       icon.style.color = "red";
 
       let productId = el._id;
-      let token = localStorage.getItem("user_token") || null;
 
       if (token == null) {
         window.stop();
@@ -124,12 +180,13 @@ const showDivs = async (n) => {
 };
 
 let icon = document.getElementById("addtocart");
+check(productsid, cart);
 icon.onclick = async () => {
   console.log("click");
 
   let token = localStorage.getItem("user_token") || null;
-  let work = "cart";
-  check(productsid, work, icon);
+ 
+  check(productsid, cart);
 
   if (token == null) {
     window.stop();
@@ -153,14 +210,16 @@ icon.onclick = async () => {
         window.stop();
         alert("Login to see this page");
         window.location.href = "login.html"; //  alertMsg("please login")
+      } else {
+        alertMsg("Item added to cart successfully", "success");
       }
     } catch (err) {
       alertMsg("error occured try agian or login agian", "fail");
     }
   }
 };
-let work = "cart";
-check(productsid, work, icon);
+
+// check(productsid, work, icon);
 
 var slideIndex = 1;
 showDivs(slideIndex);
