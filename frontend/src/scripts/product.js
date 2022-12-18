@@ -45,7 +45,7 @@ document.getElementById("cat1").innerHTML = `${category}`;
 document.getElementById("cat2").innerHTML = `${category}  Sale`;
 
 const getProducts = async () => {
-  console.log(category);
+  //console.log(category);
   var url;
   if (category == null) {
     url = "https://kars-stock.onrender.com/products";
@@ -64,10 +64,10 @@ const getProducts = async () => {
   }
 };
 getProducts();
-const appendProducts = (data) => {
+const appendProducts = async(data) => {
   let data_div = document.getElementById("betright1");
 
-  data.forEach((el) => {
+  data.forEach(async(el) => {
     //console.log(el)
     let div = document.createElement("div");
 
@@ -77,26 +77,47 @@ const appendProducts = (data) => {
 
     // icon.innerHTML=f4c7;
     icon.setAttribute("class", "fa-solid fa-heart");
+
     icon.setAttribute("id", "fa-solid");
     if (loggedIn) {
-      check(el._id, wishlist, icon);
+   let {p,wishlistid}  =  await check(el._id, wishlist, icon);
+    console.log(wishlistid)
     }
     icon.onclick = async function () {
       // let work="wishlist";
-      // check(el._id,work,icon)
 
-      let token = localStorage.getItem("user_token") || null;
+      if (p!==true) {
+        if (token == null) {
+          window.stop();
+          alert("Login to add this to wishlist");
+          window.location.href = "login.html";
+        } else {
+          let productId = el._id;
+          let Api = `https://kars-stock.onrender.com/wishlist/add/${productId}`;
+          let data = await fetch(Api, {
+            // api/user/myprofile    in return  status = success or status fail or error
+            method: "POST",
 
-      if (token == null) {
-        window.stop();
-        alert("Login to add this to wishlist");
-        window.location.href = "login.html";
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          data = await data.json();
+          if (data.status == "error" || data.status == "fail") {
+            window.stop();
+            alert("Login to see this page");
+            window.location.href = "login.html"; //  alertMsg("please login")
+          } else {
+            icon.style.color = "red";
+            alertMsg("Added to Favourites successfully", "success");
+          }
+        }
       } else {
-        let productId = el._id;
-        let Api = `https://kars-stock.onrender.com/wishlist/add/${productId}`;
+      
+        let Api = `https://kars-stock.onrender.com/wishlist/delete/${wishlistid}`;
         let data = await fetch(Api, {
           // api/user/myprofile    in return  status = success or status fail or error
-          method: "POST",
+          method: "DELETE",
 
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,11 +126,11 @@ const appendProducts = (data) => {
         data = await data.json();
         if (data.status == "error" || data.status == "fail") {
           window.stop();
-          alert("Login to see this page");
+          alert("Login to delete this item");
           window.location.href = "login.html"; //  alertMsg("please login")
         } else {
-          icon.style.color = "red";
-          alertMsg("Added to Favourites successfully", "success");
+          icon.style.color = "none";
+          alertMsg("Removed from Favourites successfully", "success");
         }
       }
     };
