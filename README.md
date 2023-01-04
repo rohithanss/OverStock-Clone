@@ -1,4 +1,5 @@
-# fluffy-cough-192
+# OverStock.com Clone
+
 
 User Side:
 
@@ -13,3 +14,5 @@ Admin Side:
 - Products and Order Management - Rohit Hans
 
 Backend: Rohit Hans
+
+project code: fluffy-cough-192
